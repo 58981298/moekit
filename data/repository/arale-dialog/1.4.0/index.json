@@ -1,0 +1,59 @@
+{
+  "name": "arale-dialog",
+  "version": "1.4.0",
+  "description": "Dialog 是通用对话框容器，提供显隐关闭、遮罩层、内嵌iframe、内容区域自定义以及模态对话框等功能。",
+  "keywords": [
+    "widget",
+    "modal",
+    "overlay",
+    "confirmbox",
+    "alert"
+  ],
+  "author": "偏右 <afc163@gmail.com>",
+  "maintainers": [
+    "偏右 <afc163@gmail.com>",
+    "贯高 <sakura9515@gmail.com>"
+  ],
+  "homepage": "http://aralejs.org/dialog",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aralejs/dialog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/dialog/issues"
+  },
+  "spm": {
+    "main": "dialog.js",
+    "dependencies": {
+      "jquery": "1.7.2",
+      "arale-overlay": "1.2.0",
+      "arale-events": "1.2.0",
+      "arale-templatable": "0.10.0",
+      "handlebars-runtime": "1.3.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1",
+      "sinon": "1.6.0"
+    },
+    "engines": {
+      "seajs": "2.2.1",
+      "seajs-text": "1.1.0"
+    },
+    "buildArgs": "--ignore jquery --styleBox"
+  },
+  "dependencies": [
+    "jquery@1.7.2",
+    "arale-overlay@1.2.0",
+    "arale-events@1.2.0",
+    "arale-templatable@0.10.0",
+    "handlebars-runtime@1.3.0"
+  ],
+  "readme": "# Dialog\r\n\r\n---\r\n\r\n[![spm package](http://spmjs.io/badge/arale-dialog)](http://spmjs.io/package/arale-dialog)\r\n[![Build Status](https://img.shields.io/travis/aralejs/dialog.svg?style=flat)](https://travis-ci.org/aralejs/dialog)\r\n[![Coverage Status](https://img.shields.io/coveralls/aralejs/dialog.svg?style=flat)](https://coveralls.io/r/aralejs/dialog)\r\n\r\n基础对话框组件，提供对话框显示隐藏、dom 结构自定义、定位、select 遮挡、确定取消关闭等功能特性。\r\n\r\n本模块分为两个子组件：Dialog 和 ConfirmBox，前者提供抽象的基础容器功能，无绑定 UI 样式，后者在前者的基础上提供模态对话框的功能并提供完善的 UI 样式。\r\n\r\nDialog 组件提供了默认样式，请单独引用 [dialog.css](https://github.com/aralejs/dialog/blob/master/src/dialog.css)。\r\n\r\n![对话框图](https://i.alipayobjects.com/e/201308/xqEbLhq3p.png)\r\n\r\nDialog 继承了 [overlay](http://aralejs.org/overlay/)，可使用其中包括 [widget](http://aralejs.org/widget/)、[base](http://aralejs.org/base/)、[class](http://aralejs.org/class/)、[events](http://aralejs.org/events/)、[attribute](http://aralejs.org/base/docs/attribute.html)、[aspect](http://aralejs.org/base/docs/aspect.html) 的属性和方法。\r\n\r\n---\r\n\r\n## 最佳实践\r\n\r\n```js\r\nseajs.use('dialog', function(Dialog) {\r\n    var o = new Dialog({\r\n        trigger: '#trigger',\r\n        content: '<div>这是 dialog 容器的内容</div>'\r\n    });\r\n});\r\n```\r\n\r\n内嵌 Iframe：\r\n\r\n```js\r\nseajs.use('dialog', function(Dialog) {\r\n    var o = new Dialog({\r\n        trigger: '#trigger',\r\n        content: 'https://www.alipay.com/'\r\n    });\r\n});\r\n```\r\n\r\n## 配置说明\r\n\r\n### trigger *element*\r\n\r\n对话框触发元素，可传递选择器。\r\n\r\n### content *string|element*\r\n\r\n容器的内容，可以是纯字符串、dom对象、jQuery对象、html标签字符串、以及 URL 地址。当 content 为 URL 地址时，本组件将内嵌目标页面的 Iframe。\r\n\r\n### hasMask *boolean*\r\n\r\n是否有背景遮罩层。默认为 `true`。\r\n\r\n### classPrefix *string*\r\n\r\n统一样式前缀，默认为 `ui-dialog`。\r\n\r\n### closeTpl *string*\r\n\r\n右上角的关闭链接，默认为`×`。\r\n\r\n### width *number|string*\r\n\r\n对话框宽度，默认 500px。\r\n\r\n### height *number|string*\r\n\r\n对话框高度。当设置了这个属性时，对话框高度会固定，\r\n下面的 autoFit 强制为 false，initialHeight 失效。\r\n\r\n### zIndex *number*\r\n\r\n对话框 z-index 层级，默认 999。\r\n\r\n### effect *string*\r\n\r\n简单的动画效果，none 为无动画，fade 为渐入效果。默认为 none。\r\n\r\n### autoFit *boolean*\r\n\r\n内嵌 Iframe 页面时是否自适应高度，默认为 true。`iframe 类型时有效`\r\n\r\n### initialHeight *number|string*\r\n\r\n内嵌 Iframe 页面时对话框的初始高度（onload 后会发生变化），默认为 300px 。`只有当对话框是 iframe 类型时有效`\r\n\r\n\r\n> 其他配置如定位参数 `align` 等请参照 [overlay](http://aralejs.org/overlay/)。\r\n\r\n\r\n## 实例方法\r\n\r\n主要有 show、hide、render 等方法，请参照 [overlay](http://aralejs.org/overlay/)。\r\n\r\n\r\n## 事件说明\r\n\r\n### complete:show\r\n\r\n本事件在当 content 为 URL 地址时 Iframe 载入完毕后触发。\r\n\r\n```js\r\ndialogInstanse.on('complete:show', function() {\r\n    // Iframe 载入完毕\r\n});\r\n```\r\n\r\n> close 事件已经删除，可以使用 `.after('hide', function() {})` 来代替。\r\n\r\n\r\n## 委托绑定\r\n\r\n需要动态加载 trigger 时，可以使用如下方式进行委托绑定。\r\n\r\n```js\r\n// 不初始化 trigger\r\nvar d = new Dialog({\r\n  content: '内容'\r\n});\r\n\r\n$('document').on('click', '.selector', function() {\r\n  d.activeTrigger = $(this);\r\n  d.show();\r\n});\r\n```\r\n\r\n",
+  "tag": "stable",
+  "revision": "e14b210354067e90d62cb66c5957e9da336fce8a",
+  "publisher": "airyland",
+  "md5": "c3a61fe6f56c3376197184f4278f5958",
+  "filename": "arale-dialog-1.4.0.tar.gz",
+  "created_at": "2014-08-19T15:42:18+08:00",
+  "updated_at": "2014-08-19T15:42:18+08:00"
+}

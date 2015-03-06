@@ -1,0 +1,43 @@
+{
+  "name": "ubbparser",
+  "version": "0.5.1",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/yyydao/UBBParser",
+  "author": "zmmbreeze,yyy",
+  "maintainers": [
+    "zmmbreeze",
+    "yyy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yyydao/UBBParser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yyydao/UBBParser/issues"
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "ubb.js",
+    "dependencies": {
+      "jquery": "1.8.3"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    },
+    "engines": {
+      "seajs": "2.2.1"
+    },
+    "tests": "tests/*.js"
+  },
+  "tag": "stable",
+  "readme": "# ubbparser\r\nUBBParser is a UBB code parser writing in javascript.\r\nIt is highly flexible and easy to custom. Support major desktop browser like IE 6+,Firefox10+,Safari5+,Opera,Chrome.\r\n---\r\n\r\n[![spm version](http://spmjs.io/badge/ubbparser)](http://spmjs.io/package/ubbparser)\r\n\r\nAn awesome spm package!\r\n\r\n---\r\n\r\n## Install\r\n\r\n```\r\n$ spm install ubbparser --save\r\n```\r\n\r\n## Usage\r\n\r\n```js\r\nvar ubbparser = require('ubbparser');\r\n// use ubbparser\r\n```\r\n\r\n#License\r\nMIT.\r\nBe pleasure to fork and modify it.\r\n\r\n#Feature:\r\nConvert UBB string to HTML string;\r\nConvert HTML element to UBB string, parse by element style not html string;\r\nAuto correct UBB string;\r\nCustom your own UBB tag;\r\n\r\n#Demo:\r\n    \r\n    var parser = new UBB({\r\n            defaultColor: '#000000',            // [option] color of all text element\r\n            linkDefaultColor: '#006699',        // [option] color of a elment\r\n            flashImage: '/skin/imgs/flash.png', // [option] flash image to show\r\n            tags: {\r\n                newtagname: {\r\n                    parseHTML: function(nodeName, node, re) {\r\n                        // define which dom node to convert\r\n                        // node is a jquery object\r\n                        if (nodeName === 'div' && node[0].className === 'gui-ubb-ref') {\r\n                            // return prefix string\r\n                            re.prefix = '[ref]' + (re.prefix || '');\r\n                            // return suffix string\r\n                            re.suffix = (re.suffix || '') + '[/ref]';\r\n                        }\r\n                    },\r\n                    parseUBB: function(node, sonString, setting) {\r\n                        // parser will find a matched tag for you\r\n                        // return UBB string include sonString\r\n                        return '<div class=\"gui-ubb-ref\">' + sonString + '</div>';\r\n                    },\r\n                    // string.\r\n                    // Specified which tag can be contained.\r\n                    // '' or undefined indicate it can't contian any tag.\r\n                    // '*' indicate it can contian any tag.\r\n                    canContains: 'bold,italic,color,url,image',\r\n                    // bool.\r\n                    // If true, then this tag can contains '\\n'.\r\n                    canWrap: 0,\r\n                    // bool.\r\n                    // If true, then the '\\n' right after this tag should be ignore.\r\n                    isBlock: 0,\r\n                    noAttr: 1\r\n                }\r\n            }\r\n        });\r\n    // convert HTML element to UBB string\r\n    parser.HTMLtoUBB($('#container'));\r\n    // convert UBB string to HTML string\r\n    parser.UBBtoHTML('[bold]aaa[/bold]');\r\n    // auto correct UBB string\r\n    parser.fixUBB('[bold]aaa');   // ==> echo [bold]aaa[/bold]\r\n\r\nPlease check index.html for detail.\r\n\r\n#NOTE:\r\nWhen converting HTML elements to UBB string, UBBParser can deal with whitespace and newline in pre style. But in case of IE 6/7/8's bug, it's not work very well in this situation.\r\n\r\n\r\n## Api\r\n\r\n\r\n",
+  "dependencies": [
+    "jquery@1.8.3"
+  ],
+  "publisher": "yyydao",
+  "md5": "41dd97b556aee19bdb84daabd17d9883",
+  "filename": "ubbparser-0.5.1.tar.gz",
+  "created_at": "2014-09-09T19:12:50+08:00",
+  "updated_at": "2014-09-09T19:12:50+08:00"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "iframe-ajax",
+  "version": "0.0.6",
+  "description": "ajax by iframe",
+  "homepage": "https://github.com/airyland/seedit.iframeAjax",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airyland/seedit.iframeAjax"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "alias": {},
+    "devAlias": {},
+    "engines": {},
+    "devDependencies": {
+      "seajs": "2.2.1"
+    },
+    "dependencies": {
+      "jquery": "1.8.3",
+      "query-string": "0.4.0"
+    }
+  },
+  "dependencies": [
+    "jquery@1.8.3",
+    "query-string@0.4.0"
+  ],
+  "readme": "# iframeAjax\r\n\r\n---\r\n\r\n[![Build Status](https://secure.travis-ci.org/airyland/seedit.iframeAjax.png)](https://travis-ci.org/airyland/seedit.iframeAjax)\r\n[![Coverage Status](https://coveralls.io/repos/airyland/seedit.iframeAjax/badge.png?branch=master)](https://coveralls.io/r/airyland/iframeAjax)\r\n\r\n\r\nIE(6)跨域坑爹。因此通过为`jQuery.ajax`添加一个`iframe` `transport` 来实现`伪Ajax`请求。\r\n\r\n`注意:`这里的跨域是指`子域之间`和`主域与子域`之间的跨域。\r\n\r\n---\r\n\r\n\r\n\r\n## 使用说明\r\n和正常使用`$.ajax`一样，但是需要在`option`上加上`iframe:true`\r\n\r\n```javascript\r\nseajs.use('iframeAjax',function($){\r\n    $.ajax({\r\n        url: 'http://dev03.seedit.com/api.html',\r\n        iframe: true,\r\n        dataType: \"json\",\r\n        success: function(data) {\r\n            alert(data);\r\n        }\r\n    });\r\n});\r\n\r\n```\r\n\r\n\r\n## 服务端返回说明\r\n1.需要将内容包含于`textarea`标签中。\r\n\r\n2.如果为跨子域，那么需要在设定`document.domain`为主域名。\r\n\r\n```javascript\r\n<script>document.domain = 'seedit.com';</script>\r\n<textarea>{\"hello\":\"world\"}</textarea>\r\n```\r\n\r\n\r\n## todo\r\n\r\n+ 支持文件上传\r\n+ 支持直接从form表单提交，而不是现在的根据`data`建一个隐藏表单再提交。",
+  "tag": "stable",
+  "revision": "b53b1d95284e688939f1c4c2581373f4f2716612",
+  "publisher": "airyland",
+  "md5": "186617b81d86c92c9c26d036f7eb64bc",
+  "filename": "iframe-ajax-0.0.6.tar.gz",
+  "created_at": "2014-06-14T15:35:49+08:00",
+  "updated_at": "2015-02-04T11:22:03+08:00",
+  "dependents": [
+    "seedit-api@0.0.5"
+  ]
+}

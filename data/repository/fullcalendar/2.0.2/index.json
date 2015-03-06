@@ -1,0 +1,47 @@
+{
+  "name": "fullcalendar",
+  "version": "2.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arshaw/fullcalendar.git"
+  },
+  "devDependencies": {
+    "underscore": "^1.4.4",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.1.3",
+    "grunt-contrib-uglify": "^0.1.2",
+    "grunt-contrib-copy": "^0.4.1",
+    "grunt-contrib-compress": "^0.4.10",
+    "grunt-contrib-clean": "^0.4.1",
+    "grunt-contrib-jshint": "^0.8.0",
+    "grunt-jscs-checker": "^0.4.4",
+    "grunt-shell": "^0.7.0",
+    "grunt-karma": "^0.8.3",
+    "grunt-bump": "0.0.14",
+    "lumbar": "^2.0.1",
+    "karma-jasmine": "^0.2.2",
+    "karma-phantomjs-launcher": "^0.1.4"
+  },
+  "scripts": {
+    "install": "bower install"
+  },
+  "spm": {
+    "main": "./dist/fullcalendar.js",
+    "dependencies": {
+      "jquery": "1.8.3",
+      "moment": "2.6.0"
+    }
+  },
+  "dependencies": [
+    "jquery@1.8.3",
+    "moment@2.6.0"
+  ],
+  "readme": "# FullCalendar\r\n\r\nA full-sized drag & drop event calendar (jQuery plugin).\r\n\r\n- [Project website and demos](http://arshaw.com/fullcalendar/)\r\n- [Documentation](http://arshaw.com/fullcalendar/docs/)\r\n- [Support](http://arshaw.com/fullcalendar/support/)\r\n- [Changelog](changelog.md)\r\n- [License](license.txt)\r\n\r\nFor contributors:\r\n\r\n- [Ways to contribute](http://arshaw.com/fullcalendar/wiki/Contributing/)\r\n- [General coding guidelines](https://github.com/arshaw/fullcalendar/wiki/Contributing-Code)\r\n- [Contributing features](https://github.com/arshaw/fullcalendar/wiki/Contributing-Features)\r\n- [Contributing bugfixes](https://github.com/arshaw/fullcalendar/wiki/Contributing-Bugfixes)",
+  "tag": "stable",
+  "revision": "045ebccc5714ce1d01c73bc95e1bbd356a23200c",
+  "publisher": "airyland",
+  "md5": "cd24029579335b23326a45ef493cbc6a",
+  "filename": "fullcalendar-2.0.2.tar.gz",
+  "created_at": "2014-07-15T13:50:28+08:00",
+  "updated_at": "2014-07-15T13:50:28+08:00"
+}

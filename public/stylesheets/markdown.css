@@ -1,0 +1,321 @@
+.markdown ::-moz-selection {
+  background-color: rgba(0,0,0,0.2);
+}
+.markdown ::selection {
+  background-color: rgba(0,0,0,0.2);
+}
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  color: #222223;
+}
+.markdown h1 {
+  font-size: 1.8em;
+  margin: 0.67em 0;
+}
+.markdown > h1 {
+  font-size: 2em;
+  margin: 0;
+}
+.markdown h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+.markdown h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-size: 1em;
+  margin: 1.6em 0 1em 0;
+}
+.markdown h6 {
+  font-weight: 500;
+}
+.markdown p {
+  margin-top: 0;
+  margin-bottom: 1.46em;
+}
+.markdown a {
+  word-wrap: break-word;
+}
+.markdown strong,
+.markdown b {
+  font-weight: 700;
+  color: #222;
+}
+.markdown em,
+.markdown i {
+  font-style: italic;
+  color: #222;
+}
+.markdown img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.2em 0;
+}
+.markdown a img {
+  /* Remove border on IE */
+  border: none;
+}
+.markdown figure {
+  position: relative;
+  clear: both;
+  outline: 0;
+  margin: 10px 0 30px;
+  padding: 0;
+  min-height: 100px;
+}
+.markdown figure img {
+  display: block;
+  max-width: 100%;
+  margin: auto auto 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.markdown figure figcaption {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #666665;
+}
+.markdown figure figcaption a {
+  text-decoration: none;
+  color: #666665;
+}
+.markdown hr {
+  display: block;
+  margin: 15px auto;
+  border: 0 none;
+  border-top: 1px solid #dededc;
+}
+.markdown blockquote {
+  margin: 0 0 1.64em 0;
+  border-left: 4px solid #dadada;
+  padding-left: 12px;
+  color: #777;
+}
+.markdown ul,
+.markdown ol {
+  margin: 0 0 24px 6px;
+  padding-left: 16px;
+}
+.markdown ul {
+  list-style-type: square;
+}
+.markdown ol {
+  list-style-type: decimal;
+}
+.markdown li {
+  margin-bottom: 0.2em;
+}
+.markdown li ul,
+.markdown li ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 14px;
+}
+.markdown li ul {
+  list-style-type: disc;
+}
+.markdown li ul ul {
+  list-style-type: circle;
+}
+.markdown li p {
+  margin: 0.4em 0 0.6em;
+}
+.markdown .unstyled {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.markdown code,
+.markdown tt {
+  font-size: 0.9em;
+  background-color: #FEE9CC;
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.markdown pre {
+  margin: 1.64em 0;
+  padding: 7px;
+  border: none;
+  border-left: 6px solid #F2F2F1;
+  padding-left: 12px;
+  overflow: auto;
+  line-height: 1.5;
+  font-size: 0.96em;
+  border-radius: 6px;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: #4c4c4c;
+  background-color: #F9F9F8;
+}
+.markdown pre code,
+.markdown pre tt {
+  color: #4c4c4c;
+  border: none;
+  background: none;
+  padding: 0;
+}
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 1.5em;
+  font-size: 0.96em;
+}
+.markdown table {
+  border-top: 3px solid #eee;
+  border-bottom: 3px solid #eee;
+}
+.markdown th,
+.markdown td {
+  text-align: left;
+  padding: 3px 10px;
+  vertical-align: top;
+}
+.markdown tbody tr:nth-child(odd) {
+  background-color: #fafafa;
+}
+.markdown iframe {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+.markdown figure iframe {
+  margin: auto;
+}
+.markdown table pre {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+@media (min-width: 1100px) {
+  .markdown blockquote blockquote {
+    margin-left: 0;
+  }
+  .markdown figure img {
+    margin: 0 0 4px;
+  }
+  .markdown figure figcaption:before {
+    width: 25%;
+    margin-left: 75%;
+    border-top: 1px solid #dededc;
+    display: block;
+    content: "";
+    margin-bottom: 10px;
+  }
+  .markdown figure figcaption {
+    position: absolute;
+    left: -172px;
+    width: 150px;
+    top: 0;
+    text-align: right;
+    margin-top: 0;
+  }
+}
+
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+/* http://highlightjs.org/static/styles/tomorrow.css */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-title {
+  color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-regexp,
+.ruby .hljs-constant,
+.xml .hljs-tag .hljs-title,
+.xml .hljs-pi,
+.xml .hljs-doctype,
+.html .hljs-doctype,
+.css .hljs-id,
+.css .hljs-class,
+.css .hljs-pseudo {
+  color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-built_in,
+.hljs-literal,
+.hljs-params,
+.hljs-constant {
+  color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.ruby .hljs-class .hljs-title,
+.css .hljs-rules .hljs-attribute {
+  color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-value,
+.hljs-inheritance,
+.hljs-header,
+.ruby .hljs-symbol,
+.xml .hljs-cdata {
+  color: #718c00;
+}
+
+/* Tomorrow Aqua */
+.css .hljs-hexcolor {
+  color: #3e999f;
+}
+
+/* Tomorrow Blue */
+.hljs-function,
+.python .hljs-decorator,
+.python .hljs-title,
+.ruby .hljs-function .hljs-title,
+.ruby .hljs-title .hljs-keyword,
+.perl .hljs-sub,
+.javascript .hljs-title,
+.coffeescript .hljs-title {
+  color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.javascript .hljs-function {
+  color: #8959a8;
+}
+
+.hljs {
+  display: block;
+  background: white;
+  color: #4d4d4c;
+  padding: 0.5em;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}

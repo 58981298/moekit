@@ -1,0 +1,38 @@
+{
+  "name": "oncetip",
+  "version": "0.0.1",
+  "family": "moe",
+  "description": "The best project ever.",
+  "homepage": "https://github.com/lizheng/onceTip",
+  "author": "airyland",
+  "maintainers": [
+    "airyland"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lizheng/onceTip.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "src/onceTip.js",
+    "output": [
+      "onceTip.js"
+    ],
+    "alias": {},
+    "devAlias": {},
+    "engines": {}
+  },
+  "dependencies": [],
+  "readme": "# onceTip\r\n\r\n---\r\n\r\n只显示一次的提示处理。\r\n\r\n依赖于`cookieStore`,保存所有的显示状态到一个cookie里面。\r\n\r\n注意，所有的提示请`先设置为隐藏`。先显示再闪一下消失是让人不悦的体验。\r\n\r\n---\r\n\r\n## 使用说明\r\n\r\n```html\r\n<a href=\"hello\" data-action=\"show-once\" data-scope=\"bbs\" data-label=\"name\">我是论坛只显示一次的提示呀</a>\r\n```\r\n\r\n## API\r\n\r\n只有一个初始化接口\r\n\r\n### walk <em>function</em>\r\n初始化入口\r\n\r\n## API配置\r\n\r\n### scopeMap <em>function(scope){}</em>\r\nscope的预处理，一般不需要配置。\r\n\r\n\r\n## HTML 配置\r\n\r\n### data-action=\"show-once\"\r\n必须且固定，标识该区块为需要处理的元素\r\n\r\n### data-trigger\r\n\r\n触发元素选择器，从`data-action`的子孙元素中查找\r\n\r\n默认当前元素为触发元素\r\n\r\n### data-scope\r\n\r\n状态保存域名\r\n可以写域名，也可以写子域名字。如果为子域名字`a`，则保存域名为 a + . + 主域名。\r\n默认为`current`。\r\n\r\n特殊名字有：\r\n+ `all`表示全站，\r\n+ `current`表示当前域名，\r\n\r\n### data-label\r\n\r\n必需，为状态值保存名字(key)\r\n\r\n每个不同的提示块名字必须不同。\r\n\r\n如果几个地方名字相同，那么可以实现`一处关闭，其他地方也不再出现`。\r\n\r\n\r\n\r\n\r\n\r\n",
+  "tag": "stable",
+  "revision": "b698a14c3bcad347b394be1ec0af046fbb71b0ae",
+  "publisher": "airyland",
+  "md5": "e72c47379d976d1604e7cc21ff2f8868",
+  "filename": "oncetip-0.0.1.tar.gz",
+  "created_at": "2014-05-18T15:37:20+08:00",
+  "updated_at": "2014-05-18T15:41:47+08:00"
+}

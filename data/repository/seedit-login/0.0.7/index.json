@@ -1,0 +1,56 @@
+{
+  "name": "seedit-login",
+  "version": "0.0.7",
+  "description": "common login Dialog",
+  "homepage": "https://github.com/airyland/seedit.ui.loginBox",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/airyland/seedit.ui.loginBox.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "output": [
+      "./src/loginBox.css"
+    ],
+    "alias": {},
+    "devAlias": {},
+    "engines": {
+      "seajs": "2.2.1",
+      "seajs-text": "1.1.0"
+    },
+    "dependencies": {
+      "jquery": "1.8.3",
+      "seedit-api": "0.0.5",
+      "seedit-user": "0.0.6",
+      "eventor": "0.0.3",
+      "dialoger": "1.0.0",
+      "handlebars-runtime": "1.3.0"
+    },
+    "devDependencies": {
+      "seajs": "2.2.1"
+    },
+    "buildArgs": "--ignore jquery"
+  },
+  "dependencies": [
+    "jquery@1.8.3",
+    "seedit-api@0.0.5",
+    "seedit-user@0.0.6",
+    "eventor@0.0.3",
+    "dialoger@1.0.0",
+    "handlebars-runtime@1.3.0"
+  ],
+  "readme": "# loginBox\r\n\r\n---\r\n\r\n[![Build Status](https://secure.travis-ci.org/airyland/seedit.ui.loginBox.png)](https://travis-ci.org/airyland/seedit.ui.loginBox)\r\n[![Coverage Status](https://coveralls.io/repos/airyland/seedit.ui.loginBox/badge.png?branch=master)](https://coveralls.io/r/airyland/seedit.ui.loginBox)\r\n\r\n\r\n网站统一登录弹窗\r\n\r\n---\r\n\r\n## 使用说明\r\n该模块为全站统一弹窗，依赖于 `dialog`及`API`组件\r\n\r\n## 配置说明\r\n\r\n\r\n###  trigger *String*\r\n\r\n触发元素,请填写`选择器`\r\n为空时，直接弹出登录框\r\n\r\n\r\n\r\n\r\n## API接口\r\n\r\n\r\n\r\n### box.on(event,callback)\r\n见下面接口事件说明。\r\n\r\n## 接口事件说明\r\n\r\n+ `open` 弹窗打开\r\n+ `close` 弹窗关闭\r\n+ `submitStart` 点击提交按钮\r\n+ `submitDone` 提交结束，回调参数为 `success`或者`error`\r\n+ `authSuccess` 登录成功，回调参数为 uid\r\n+ `authError`   登录失败，回调参数为 {error_code:1001,error_message:'出错消息'}, 失败次数\r\n+ `userinfoGotSuccess` 用户信息获取成功，回调参数为用户信息\r\n+ `userinfoGotError` 用户信息获取失败，回调参数为出错信息\r\n\r\n## 示例\r\n\r\n``` javascript    \r\nseajs.use('loginBox', function(loginBox) {\r\n    var $ = jQuery;\r\n    var box = new loginBox({});\r\n    box.on('open', function() {\r\n        console.log('open');\r\n    }).on('authSuccess', function(uid) {\r\n        console.log('登录成功啦', uid)\r\n    }).on('authError', function(error, times) {\r\n        console.log('登录失败啦', error.error_message, times);\r\n    }).on('userinfoGotSuccess', function(user) {\r\n        console.log('信息获取成功啦', user);\r\n    }).on('close', function() {\r\n        console.log('close');\r\n    });\r\n    box.on('all', function(name) {\r\n        // 打开调试工具查看输出\r\n        console.log('event::', name);\r\n    });\r\n});\r\n```",
+  "tag": "stable",
+  "revision": "af147567b3df7e7503e4fc9a825d62de593aa9e8",
+  "publisher": "airyland",
+  "md5": "849221fede556f750f1412533205abba",
+  "filename": "seedit-login-0.0.7.tar.gz",
+  "created_at": "2014-06-26T10:19:04+08:00",
+  "updated_at": "2014-08-19T16:36:33+08:00"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "pager",
+  "version": "1.1.5",
+  "homepage": "http://esimakin.github.io/twbs-pagination/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MoeKit/pager"
+  },
+  "license": {
+    "type": "Apache 2.0",
+    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  "bugs": {
+    "url": "https://github.com/MoeKit/pager/issues"
+  },
+  "spm": {
+    "main": "index.js",
+    "output": [
+      "pager.css",
+      "twbspager.css"
+    ],
+    "dependencies": {
+      "jquery": "1.8.3",
+      "eventor": "0.0.3"
+    }
+  },
+  "tag": "stable",
+  "readme": "# Pager\r\n\r\n---\r\n\r\n### jQuery pagination plugin (bootstrap powered)\r\n\r\n[Documentation](http://esimakin.github.io/twbs-pagination/)\r\n\r\n### Changelog\r\nv1.1.4\r\n- Seedit论坛风格,\r\n\r\nv1.1.2\r\n- 可配置分页容器的类名和分页按钮的类名\r\n\r\nv1.1.1\r\n- Added 'hold current page on center'\r\n\r\nv1.1.0\r\n- Simple pagination\r\n\r\n### reference\r\n\r\n+ http://jplist.com/",
+  "dependencies": [
+    "jquery@1.8.3",
+    "eventor@0.0.3"
+  ],
+  "publisher": "yyydao",
+  "md5": "1c02a7a9a24942e6ee11c32a227b18fc",
+  "filename": "pager-1.1.5.tar.gz",
+  "created_at": "2015-02-04T15:03:22+08:00",
+  "updated_at": "2015-02-04T15:03:22+08:00"
+}

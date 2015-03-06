@@ -1,0 +1,42 @@
+{
+  "name": "scroll-monitor",
+  "version": "1.0.8",
+  "author": "Stu Kabakoff <stukabakoff@gmail.com>",
+  "description": "A simple and fast API to monitor DOM elements as you scroll",
+  "contributors": [
+    {
+      "name": "Stu Kabakoff",
+      "email": "stukabakoff@gmail.com"
+    },
+    {
+      "name": "Terrence Lee",
+      "email": "mr.lee@terrenceishere.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sakabako/scrollMonitor.git"
+  },
+  "keywords": [
+    "scroll",
+    "dom"
+  ],
+  "main": "./index.js",
+  "dependencies": [
+    "jquery@1.8.3"
+  ],
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "jquery": "1.8.3"
+    }
+  },
+  "readme": "scrollMonitor\r\n=============\r\n\r\nThe scroll monitor allows you to receive events when elements enter or exit the viewport. It does this using watcher objects, which watch an element and trigger events. Watcher objects also contain information about the element they watch, including the element's visibility and location relative to the viewport.\r\n\r\nThe scroll monitor was designed to be very fast. On each scroll event the DOM is only touched twice, once to find the document height and again to find the viewport top. No variables are declared, nor are any objects, arrays, or strings created.\r\n\r\nWatchers are _very_ cheap. Create them liberally.\r\n\r\n## Basic Usage\r\n\r\n```javascript\r\nvar scrollMonitor = require(\"./scrollMonitor\"); // if you're not using require, you can use the scrollMonitor global.\r\nvar myElement = document.getElementById(\"itemToWatch\");\r\n\r\nvar elementWatcher = scrollMonitor.create( myElement );\r\n\r\nelementWatcher.enterViewport(function() {\r\n    console.log( 'I have entered the viewport' );\r\n});\r\nelementWatcher.exitViewport(function() {\r\n    console.log( 'I have left the viewport' );\r\n});\r\n```\r\n## Demos\r\n\r\n* [Stress Test](http://sakabako.github.com/scrollMonitor/demos/stress.html) - Test with as many watchers as you'd like\r\n* [Fixed Positioning and Locking](http://sakabako.github.com/scrollMonitor/demos/fixed.html)\r\n* [Anchored section headers](http://sakabako.github.com/scrollMonitor/demos/list.html)\r\n* [Complex sidebar behavior](http://sakabako.github.com/scrollMonitor/demos/scoreboard.html)\r\n\r\n## Watcher Objects\r\n\r\nCreate watcher objects with `scrollMonitor.create( watchItem )`. An optional second argument lets you receive events before or after this element enters the viewport. _See \"[Offsets](#offsets)\"_.\r\n\r\n`watchItem` can be one of the following:\r\n\r\n* **DOM Element** - the watcher will watch the area contained by the DOM element.\r\n* **Object** - `obj.top` and `obj.bottom` will be used for watcher.top and watcher.bottom.\r\n* **Number** - the watcher will watch a 1px area this many pixels from the top. Negative numbers will watch from the bottom.\r\n* **jQuery object** - it will use the first DOM element.\r\n* **string** - it will use the string as a CSS selector and watch the first match.\r\n\r\nWatchers are automatically recalculated on the first scroll event after the height of the document changes.\r\n\r\n### Events\r\n\r\nElement watchers trigger six events:\r\n\r\n* `visibilityChange` - when the element enters or exits the viewport.\r\n* `stateChange` - similar to `visibilityChange` but is also called if the element goes from below the viewport to above it in one scroll event or when the element goes from partially to fully visible or vice versa.\r\n* `enterViewport` - when the element enters the viewport.\r\n* `fullyEnterViewport` - when the element is completely in the viewport [1].\r\n* `exitViewport` - when the element completely leaves the viewport.\r\n* `partiallyExitViewport` - when the element goes from being fully in the viewport to only partially [2].\r\n\r\n1. If the element is larger than the viewport `fullyEnterViewport` will be triggered when the element spans the entire viewport.\r\n2. If the element is larger than the viewport `partiallyExitViewport` will be triggered when the element no longer spans the entire viewport.\r\n\r\n### Properties\r\n\r\n* `elementWatcher.isInViewport` - true if any part of the element is visible, false if not.\r\n* `elementWatcher.isFullyInViewport` - true if the entire element is visible [1].\r\n* `elementWatcher.isAboveViewport` - true if any part of the element is above the viewport.\r\n* `elementWatcher.isBelowViewport` - true if any part of the element is below the viewport.\r\n* `elementWatcher.top` - distance from the top of the document to the top of this watcher.\r\n* `elementWatcher.bottom` - distance from the top of the document to the bottom of this watcher.\r\n* `elementWatcher.height` - top - bottom.\r\n* `elementWatcher.watchItem` - the element, number, or object that this watcher is watching.\r\n* `elementWatcher.offsets` - an object that determines the offsets of this watcher. _See \"[Offsets](#offsets)\"_.\r\n\r\n1. If the element is larger than the viewport `isFullyInViewport` is true when the element spans the entire viewport.\r\n\r\n### Methods\r\n\r\n* `elementWatcher.on/off/one` - the standard event functions.\r\n* `elementWatcher.recalculateLocation` - recalculates the location of the element in relation to the document.\r\n* `elementWatcher.destroy` - removes this watcher and clears out its event listeners.\r\n* `elementWatcher.lock` - locks this watcher at its current location. _See \"[Locking](#locking)\"_.\r\n* `elementWatcher.unlock` - unlocks this watcher.\r\n\r\nThese methods are automatically called by the scrollMonitor, you should never need them:\r\n\r\n* `elementWatcher.update` - updates the boolean properties in relation to the viewport. Does not trigger events.\r\n* `elementWatcher.triggerCallbacks` - triggers any callbacks that need to be called.\r\n\r\n### Locking\r\n\r\nSometimes you want to change the element you're watching, but want to continue watching the original area. One common use case is setting `position: fixed` on an element when it exits the viewport, then removing positioning when it when it reenters.\r\n\r\n```javascript\r\nvar watcher = scrollMonitor.create( $element );\r\nwatcher.lock(); // ensure that we're always watching the place the element originally was\r\n\r\nwatcher.exitViewport(function() {\r\n    $element.addClass('fixed');\r\n});\r\nwatcher.enterViewport(function() {\r\n    $element.removeClass('fixed');\r\n});\r\n```\r\n\r\nBecause the watcher was locked on the second line, the scroll monitor will never recalculate its location.\r\n\r\n### Offsets\r\n\r\nIf you want to trigger an event when the edge of an element is near the edge of the viewport, you can use offsets. The offset is the second argument to `scrollMonitor.create`.\r\n\r\nThis will trigger events when an element gets within 200px of the viewport: \r\n```javascript\r\nscrollMonitor.create( element, 200 )\r\n```\r\n\r\nThis will trigger when the element is 200px inside the viewport:\r\n```javascript\r\nscrollMonitor.create( element, -200 )\r\n```\r\n\r\n If you only want it to affect the top and bottom differently you can send an object in. \r\n ```javascript\r\n scrollMonitor.create( element, {top: 200, bottom: 50})\r\n ```\r\n\r\n If you only want it to affect the top and not the bottom you can use only one property in.\r\n ```javascript\r\n scrollMonitor.create( element, {top: 200})\r\n ```\r\n\r\n## scrollMonitor Module\r\n\r\n### Methods\r\n* `scrollMonitor.create( watchItem, offsets )` - Returns a new watcher. `watchItem` is a DOM element, jQuery object, CSS selector, object with .top and .bottom, or a number.\r\n* `scrollMonitor.update()` - update and trigger all watchers.\r\n* `scrollMonitor.recalculateLocations()` - recalculate the location of all unlocked watchers and trigger if needed.\r\n\r\n### Properties\r\n* `scrollMonitor.viewportTop` - distance from the top of the document to the top of the viewport.\r\n* `scrollMonitor.viewportBottom` - distance from the top of the document to the bottom of the viewport.\r\n* `scrollMonitor.viewportHeight` - height of the viewport.\r\n* `scrollMonitor.documentHeight` - height of the document.\r\n\r\n",
+  "tag": "stable",
+  "revision": "0f83a43b261e84d58b6fb74aea05d06e6721c191",
+  "publisher": "airyland",
+  "md5": "01c8cd7322c368a4e514f910be6b1352",
+  "filename": "scroll-monitor-1.0.8.tar.gz",
+  "created_at": "2014-08-14T14:50:49+08:00",
+  "updated_at": "2014-08-14T14:50:49+08:00"
+}

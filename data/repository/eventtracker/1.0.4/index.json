@@ -1,0 +1,39 @@
+{
+  "name": "eventtracker",
+  "version": "1.0.4",
+  "description": "web用户行为统计",
+  "homepage": "https://github.com/airyland/seedit.GA-event-tracker",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/airyland/seedit.GA-event-tracker.git"
+  },
+  "maintainers": [
+    "李政 <i@mao.li>"
+  ],
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "alias": {},
+    "devAlias": {},
+    "engines": {},
+    "devDependencies": {
+      "jquery": "1.8.3",
+      "seajs": "2.2.1",
+      "expect": "0.3.1"
+    }
+  },
+  "dependencies": [],
+  "readme": "# Event Tracker [![Build Status](https://travis-ci.org/airyland/eventTracker.png?branch=master)](https://travis-ci.org/airyland/seedit.GA-event-tracker)  [![Coverage Status](https://coveralls.io/repos/airyland/eventTracker/badge.png)](https://coveralls.io/r/airyland/eventTracker)\n\n---\n更加方便地添加网站事件统计\n\n该脚本是PC站统计的根基，提供了用`data-track`快速添加统计的使用方法。\n\n`WAP`站的用户行为统计从`V2`开始进行。\n\n---\n\n## 使用说明\n\n\n### init <em>function(option)</em>\n入口方法，加载时需要执行该方法进行初始化\n\n参数说明：\n\n+ `UA`   google统计id，必须\n+ `tags` 进行统计的html标签数组，不指定的将不会统计点击事件。\n\n    默认值为 `['a', 'span', 'button', 'input', 'label', 'img']`\n\n+ `log` 是否在控制台输出log\n+ `mainEvent` 关键事件，默认为`click`,如果是手机站，可以设定为 `tap`\n+ `preParams` 统计变量对象，支持多个，在data-track中包含在花括号中。\n\n   如在data-track中使用 {domain}，对应的preParams应该设定为\n  `{domain:'想要设定的值 '}`\n ---\n  **注意**:`{alt}`,`{txt}`,`{title}`为关键词，会自动从当前链接中动态取值，不可用preParams进行设置。\n\n ---\n\n\n### doTrack <em>function(trackkey)</em>\n\n发送统计请求，一般用于在JS中进行手动统计。\n\n```javascript\ndoTrack('bbs/首页/点击发帖');\n```\n\n### addTrack <em>function(selector,trackkey)</em>\nJS方式添加统计项，支持批量添加\n\n单个统计添加\n\n```javascript\naddTrack('a.hello','事件分类/事件行为/事件标签')\n```\n\n批量添加\n\n```javascript\naddTrack({\n  'a.hello1':'事件分类1/事件行为1/事件标签1',\n  'b.hello2':'事件分类2/事件行为2/事件标签2'\n});\n```\n\n\n### addService <em>function(name,trackFunction)</em>\n添加统计服务，参数为变量(如果有的话)解析后的统计字符\n\n默认会建立名为`ga`的服务，添加同名会覆盖原来的服务。\n\n\n\n```javascript\naddService('baidu',function(key){\n   // may be baidu.track(key);\n});\n```\n\n### removeService <em>function(name)</em>\n移除统计服务\n\n### listService  <em>function</em>\n列出当前所有统计服务\n\n\n\n\n",
+  "tag": "stable",
+  "revision": "5dd6b3095f6f470cd4ccd70f30475111a5820001",
+  "publisher": "airyland",
+  "md5": "2e5ec47722cae8defa41cc3b11c05e50",
+  "filename": "eventtracker-1.0.4.tar.gz",
+  "created_at": "2014-05-21T16:36:13+08:00",
+  "updated_at": "2014-05-21T16:36:13+08:00"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "seedit-bbs",
+  "version": "1.0.3",
+  "description": "bbs helper",
+  "homepage": "https://github.com/lizheng/seedit.bbs",
+  "author": "seedit",
+  "maintainers": [
+    "seedit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lizheng/seedit.bbs.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "alias": {},
+    "devAlias": {},
+    "engines": {},
+    "devDependencies": {
+      "expect": "0.3.1"
+    }
+  },
+  "dependencies": [],
+  "readme": "# seedit.bbs [![Build Status](https://secure.travis-ci.org/MoeKit/seedit-bbs.png)](https://travis-ci.org/MoeKit/seedit-bbs) [![Coverage Status](https://coveralls.io/repos/MoeKit/seedit-bbs/badge.png?branch=master)](https://coveralls.io/r/MoeKit/seedit-bbs?branch=master)\r\n\r\n---\r\n\r\nBBS 工具脚本\r\n\r\n\r\n---\r\n\r\n## 使用说明\r\n\r\n只用于bbs，即`PC`端和`WAP`端。\r\n对于`get`相关函数，默认参数为`当前页面地址`(document.location.href)。\r\n\r\n````javascript\r\nseajs.use('index', function(bbs){\r\n        console.log(bbs.page);\r\n});\r\n````\r\n\r\n## API\r\n\r\n### isWap   `page.isWap()`\r\n检查是否为`WAP(手机)`站\r\n\r\n### isNode    `page.isNode([url])`\r\n检查是否为`版块`页面\r\n\r\n\r\n### isTopic `page.isTopic([url])`\r\n检查是否为`帖子`页面\r\n\r\n### getTid  `page.getTid([url])`\r\n获取帖子tid,返回`字符串`,不为帖子页面返回 `undefined`\r\n\r\n\r\n### getFid  `page.getFid([url])`\r\n获取版块fid,返回`字符串`,不为版块页面返回 `undefined`\r\n\r\n",
+  "tag": "stable",
+  "revision": "4bc86b4070217fc07070ee6b4922b02b969e40f6",
+  "publisher": "airyland",
+  "md5": "6abf5936d2e0bbfd700808750f3d5879",
+  "filename": "seedit-bbs-1.0.3.tar.gz",
+  "created_at": "2014-05-22T11:27:43+08:00",
+  "updated_at": "2015-01-19T11:30:35+08:00",
+  "dependents": [
+    "i-tracker@0.0.1",
+    "seedit-helper@0.0.0"
+  ]
+}

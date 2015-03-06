@@ -1,0 +1,47 @@
+{
+  "name": "buttoner",
+  "version": "0.0.1",
+  "description": "button status handler",
+  "keywords": [],
+  "homepage": "https://github.com/lizheng/buttoner",
+  "author": "airyland",
+  "maintainers": [
+    "airyland"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lizheng/buttoner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lizheng/buttoner/issues"
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "spinner": "2.0.1",
+      "jquery": "1.8.3",
+      "events": "1.2.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1",
+      "seajs": "2.2.1"
+    },
+    "engines": {
+      "seajs": "2.2.1"
+    },
+    "tests": "tests/*.js"
+  },
+  "dependencies": [
+    "spinner@2.0.1",
+    "jquery@1.8.3",
+    "events@1.2.0"
+  ],
+  "readme": "# buttoner\r\n\r\n---\r\n\r\n[![spm version](http://spmjs.io/badge/buttoner)](http://spmjs.io/package/buttoner)\r\n\r\nAn awesome spm package!\r\n\r\n---\r\n\r\n## Install\r\n\r\n```\r\n$ spm install buttoner --save\r\n```\r\n\r\n## Usage\r\n\r\n```js\r\nvar buttoner = require('buttoner');\r\n// use buttoner\r\n```\r\n\r\n## Api\r\n\r\nHere is more details.\r\n\r\n",
+  "tag": "stable",
+  "publisher": "airyland",
+  "md5": "cff8bbb06c3d68b95ddbee70c89fb78c",
+  "filename": "buttoner-0.0.1.tar.gz",
+  "created_at": "2014-06-11T18:20:04+08:00",
+  "updated_at": "2014-06-11T18:20:04+08:00"
+}

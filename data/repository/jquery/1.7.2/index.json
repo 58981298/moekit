@@ -1,0 +1,48 @@
+{
+  "name": "jquery",
+  "version": "1.7.2",
+  "description": "JavaScript library for DOM operations",
+  "homepage": "http://jquery.com",
+  "author": {
+    "name": "jQuery Foundation and other contributors",
+    "url": "https://github.com/jquery/jquery/blob/master/AUTHORS.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jquery/jquery.git"
+  },
+  "keywords": [
+    "jquery",
+    "javascript",
+    "browser",
+    "library"
+  ],
+  "bugs": {
+    "url": "http://bugs.jquery.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt"
+    }
+  ],
+  "spm": {
+    "main": "jquery.js"
+  },
+  "dependencies": [],
+  "tag": "stable",
+  "publisher": "airyland",
+  "md5": "a42ed51259685532601dfcaa56ee0a05",
+  "filename": "jquery-1.7.2.tar.gz",
+  "created_at": "2014-05-21T23:55:24+08:00",
+  "updated_at": "2015-01-26T20:01:55+08:00",
+  "dependents": [
+    "calendar@1.1.0",
+    "arale-overlay@1.2.0",
+    "position@1.1.0",
+    "arale-dialog@1.4.0",
+    "arale-autocomplete@1.4.0",
+    "arale-dialog@1.4.1",
+    "arale-qrcode@1.1.1"
+  ]
+}

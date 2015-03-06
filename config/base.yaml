@@ -1,0 +1,24 @@
+default:
+  server:
+    port: 9999
+  website:
+    title: 'spmjs'
+    GA: '' # Google Analytics ID
+  wwwroot: 'data'
+  authorize:
+    type: 'github' # or github anonymous
+    # https://github.com/organizations/spmjs/settings/applications
+    # for github authorize type
+    clientId: '49905c62293d06a24998'
+    clientSecret: 'a90a79c06e6e5df87d7f0439e7ff08d41eb0564f'
+    baseURL: 'http://moekit.clary.cc'
+  reservedWords: 'root admin administrator bot www robot master webmaster account people user users project projects search favorite like love team teams group groups organization organizations package packages org com net help doc docs demo document documentation blog bbs forum forums static assets repository public private mac windows ios lab callback tag tags badge unknown undefined null node spm spmjs owner ownership since'
+
+  whitelistOnly: off
+  whitelist:
+
+  sync: on
+  syncInterval: '100m'
+  syncSource: 'https://moekit.timo.today'
+
+  indexCacheInterval: '1m'

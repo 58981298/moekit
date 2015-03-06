@@ -1,0 +1,43 @@
+{
+  "name": "seedit-api",
+  "version": "0.0.3",
+  "description": "Seedit API JavaScript SDK",
+  "homepage": "https://github.com/airyland/seedit",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/airyland/seedit.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "alias": {},
+    "devAlias": {},
+    "engines": {},
+    "dependencies": {
+      "iframeAjax": "0.0.3",
+      "jquery": "1.8.3",
+      "json": "0.0.2"
+    },
+    "devDependencies": {
+      "expect": "0.3.1"
+    }
+  },
+  "dependencies": [
+    "iframeAjax@0.0.3",
+    "jquery@1.8.3",
+    "json@0.0.2"
+  ],
+  "readme": "# API文档\r\n\r\n---\r\n\r\n<!-- [![Build Status](https://secure.travis-ci.org/aralejs/API.png)](https://travis-ci.org/seedit/API)\r\n[![Coverage Status](https://coveralls.io/repos/aralejs/API/badge.png?branch=master)](https://coveralls.io/r/seedit/API) -->\r\n\r\n\r\n站内`API` JavaScritp SDK 文档\r\n\r\n对于`POST`跨域的问题，使用`iframeAjax`进行了处理封装。\r\n\r\n---\r\n\r\n## 实现说明\r\n\r\n`GET`请求统一为`jsonp`请求\r\n\r\n`POST`请求将提交到`iframe`处理\r\n\r\n## 方法说明\r\n\r\n`API`主要只有`4`个请求方法。\r\n\r\n\r\n### API.verb(API,[data],successCallback,errorCallback)\r\n\r\n\r\nverb为`REST`基本的四个方法:\r\n\r\n+ `get`\r\n+ `post`\r\n+ `del` (delete为JavaScript`关键字`，`ie`下报错，不能使用)\r\n+ `put`\r\n\r\n\r\n参数说明\r\n\r\n+ **API** string API名字，参照`CMS`后台文档。如 `bbs/common_member`。也可以为完全的API路径。\r\n+ **data** object API参数，`可选`\r\n+ **successCallback** function 请求成功时的回调,\r\n\r\n    参数为API返回数据 `Object`:\r\n\r\n    ```json\r\n    {error_code:0,data:{}}\r\n    ```\r\n\r\n+ **errorCallback** function 请求失败的回调,\r\n\r\n    参数为API返回数据 `Object`:\r\n\r\n    ```json\r\n    {error_code:1006,error_message:'出错啦'}\r\n    ```\r\n\r\n----\r\n\r\n注意：`交互考虑，必须必须有errorCallback回调`\r\n\r\n----\r\n\r\n\r\n### API.config(Object option);\r\n`0.0.4版本`后新增加配置方法。可用选项有\r\n\r\n+ `baseAPIUrl` 如 `http://common.seedit.dev/`\r\n\r\n\r\n## 举例\r\n\r\n带参数请求：\r\n```javascript\r\nAPI.post('bbs/post',datas,function(data){\r\n    console.log('success');\r\n},function(data){\r\n    console.log('oops!'+data.error_message);\r\n})\r\n```\r\n\r\n无参数时：\r\n```javascript\r\nAPI.get('bbs/common_member',function(data){\r\n    console.log('success');\r\n},function(data){\r\n    console.log('oops!'+data.error_message);\r\n});\r\n```\r\n\r\n\r\n## 附加\r\n\r\n公用`jQuery和seajs`地址\r\n\r\n`http://scdn.bozhong.com/source/common/js/jquery.min.js`\r\n\r\n---\r\n\r\n`seajs`路径配置\r\n\r\n```javascript\r\n seajs.config({\r\n        paths: {\r\n            seedit: 'http://assets.spmjs.org/seedit',\r\n            arale: 'http://static.alipayobjects.com/arale',\r\n            gallery: 'http://static.alipayobjects.com/gallery',\r\n            moe: 'http://scdn.bozhong.com/source/moe'\r\n        }\r\n    });\r\n```\r\n\r\n\r\n",
+  "tag": "stable",
+  "revision": "2475d61c2506c64fe276f6591ac8a3c9c814fecc",
+  "publisher": "airyland",
+  "md5": "7482b33c4c66967054d8b6c12d467dfc",
+  "filename": "seedit-api-0.0.3.tar.gz",
+  "created_at": "2014-05-21T15:44:42+08:00",
+  "updated_at": "2014-05-21T15:44:42+08:00"
+}

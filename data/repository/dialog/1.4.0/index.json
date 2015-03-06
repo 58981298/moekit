@@ -1,0 +1,41 @@
+{
+  "name": "dialog",
+  "version": "1.4.0",
+  "description": "dialog solution",
+  "homepage": "https://github.com/aralejs/dialog",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/dialog"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "alias": {},
+    "devAlias": {},
+    "engines": {
+      "seajs": "2.2.1",
+      "seajs-text": "1.1.0"
+    },
+    "dependencies": {
+      "arale-dialog": "1.4.0",
+      "seajs": "2.2.1"
+    }
+  },
+  "dependencies": [
+    "arale-dialog@1.4.0",
+    "seajs@2.2.1"
+  ],
+  "readme": "# dialog\r\n\r\n---\r\n\r\n[![Build Status](https://secure.travis-ci.org/airyland/seedit.ui.dialog.png)](https://travis-ci.org/airyland/seedit.ui.dialog)\r\n[![Coverage Status](https://coveralls.io/repos/airyland/seedit.ui.dialog/badge.png?branch=master)](https://coveralls.io/r/airyland/seedit.ui.dialog)\r\n\r\n\r\nDialog solution\r\n\r\n---\r\n\r\n## 使用说明\r\n\r\n\r\n## API\r\n",
+  "tag": "stable",
+  "revision": "26b12a996734b20fc5058a3655879dd5e5f4a5a9",
+  "publisher": "airyland",
+  "md5": "ef7a24286c2aab5233dfb3593acc4de9",
+  "filename": "dialog-1.4.0.tar.gz",
+  "created_at": "2014-06-10T18:23:42+08:00",
+  "updated_at": "2014-06-10T18:23:42+08:00"
+}

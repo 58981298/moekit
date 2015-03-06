@@ -1,0 +1,37 @@
+{
+  "name": "url",
+  "version": "1.2.0",
+  "description": "Uniform Resource Locator.",
+  "homepage": "https://github.com/hotoo/url",
+  "author": "闲耘<hotoo.cn@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hotoo/url.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hotoo/url/issues"
+  },
+  "scripts": {},
+  "keywords": [
+    "utility"
+  ],
+  "licenses": "MIT",
+  "spm": {
+    "main": "url.js",
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    },
+    "tests": "tests/*-spec.js"
+  },
+  "tag": "stable",
+  "readme": "# URL\r\n\r\n---\r\n\r\n[![spm package](http://spmjs.io/badge/url)](http://spmjs.io/package/url)\r\n[![Build Status](https://travis-ci.org/hotoo/url.png)](https://travis-ci.org/hotoo/url)\r\n[![Coverage Status](https://coveralls.io/repos/hotoo/url/badge.png?branch=master)](https://coveralls.io/r/hotoo/url)\r\n\r\nUniform Resource Locator.\r\n\r\n---\r\n\r\n## Usage\r\n\r\n```js\r\nvar Url = require(\"url\");\r\n\r\nvar url = new Url(\"https://www.example.com/path/to/page?pa=A1&pa=A2&pb=B#hash\");\r\nconsole.log(url);\r\nconsole.log(url.getParam(\"pa\")); // \"A1\"\r\nconsole.log(url.getParams(\"pa\")); // [\"A1\", \"A2\"]\r\n```\r\n\r\n## API\r\n\r\n### new Url(String url)\r\n\r\nConstructor.\r\n\r\n* `origin`: readonly, and not changed when protocol, hostname, port modified!\r\n  Until one day most of all browseres supports `Object.defineProperty()`.\r\n  Use `getOrigin()` instead.\r\n* `protocol`: read+write.\r\n* `username`: read+write.\r\n* `password`: read+write.\r\n* `host`: readonly, not changed same the `origin` property. Use `getHost()`\r\n  instead.\r\n* `hostname`: read+write.\r\n* `port`: read+write.\r\n* `path`: read+write.\r\n* `search`: **readonly!** Please use `setParam()`, `addParam()`, `delParam()`,\r\n  and `clearParams()` method to modify query.\r\n* `hash`: read+write.\r\n\r\n### String getOrigin()\r\n\r\nGet the origin info.\r\n\r\n### String getHost()\r\n\r\nGet the host info.\r\n\r\n### String getParam(String name)\r\n\r\nGet named `name` param string the first.\r\n\r\n### Array getParams(String name)\r\n\r\nGet named `name` params string of all.\r\n\r\n### Url delParam(String name)\r\n\r\nDelete named `name` params.\r\n\r\n### Url addParam(String name, String|Array value)\r\n\r\nAdd params named `name`.\r\n\r\n### Url setParam(String name, String|Array)\r\n\r\nAdd or replace param values named `name`.\r\n\r\n### Url clearParams()\r\n\r\nClear all param datas.\r\n\r\n### String toString()\r\n\r\nReturn url string.\r\n\r\n### Boolean Url.verify(String url)\r\n\r\nStatic method.\r\n\r\n\r\n## Licenses\r\n\r\nMIT\r\n",
+  "dependencies": [],
+  "publisher": "airyland",
+  "md5": "860533e884b0cf6c0b44a4b9c153b372",
+  "filename": "url-1.2.0.tar.gz",
+  "created_at": "2014-10-30T14:57:36+08:00",
+  "updated_at": "2015-01-19T11:30:35+08:00",
+  "dependents": [
+    "seedit-helper@0.0.0"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "rater",
+  "version": "1.1.2",
+  "description": "星星评分实现",
+  "homepage": "https://github.com/airyland/rater",
+  "author": "airyland",
+  "maintainers": [
+    "李政 <i@mao.li>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/airyland/rater.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "output": [
+      "./src/rater.css",
+      "./src/moekit-rater.png"
+    ],
+    "alias": {},
+    "devAlias": {},
+    "engines": {},
+    "dependencies": {
+      "seajs": "2.2.1",
+      "jquery": "1.8.3",
+      "events": "1.2.0",
+      "eventor": "0.0.1"
+    },
+    "devDependencies": {
+      "seajs": "2.2.1"
+    }
+  },
+  "dependencies": [
+    "jquery@1.8.3",
+    "eventor@0.0.1"
+  ],
+  "readme": "# rater\r\n\r\n---\r\n\r\n [![Build Status](https://secure.travis-ci.org/airyland/rater.png)](https://travis-ci.org/airyland/rater)\r\n [![Coverage Status](https://coveralls.io/repos/airyland/rater/badge.png?branch=master)](https://coveralls.io/r/airyland/rater)\r\n\r\n\r\n---\r\n\r\n## 需求来源\r\n商业需求的试用报告需要星级评分\r\n\r\n`Discuz`特定版块发帖中使用需要去修改版块的自定义信息的显示模块。\r\n\r\n比较麻烦，请咨询`李政`或者`阿钢`。\r\n\r\n## 使用说明\r\n\r\n支持`PC站`的jQuery和`WAP站`的Zepto。\r\n\r\n## API\r\n\r\n完善中。请先看演示。\r\n\r\n## 配置\r\n\r\n### target <em>String</em>\r\n评分容器选择器\r\n\r\n### enabled <em>Boolean</em>\r\n是否鼠标经过有响应，默认为`true`\r\n\r\n\r\n### min <em>Number</em>\r\n最小值\r\n\r\n### max <em>Number</em>\r\n最多显示的星星数\r\n\r\n### value <em>Number</em>\r\n默认显示的星数\r\n\r\n### onselect <em>function(number,target)</em>\r\n选择星星时的回调,`this`指向`target`，参数为当前选择到的值\r\n\r\n### onhover <em>function(hoverNumber,target)</em>\r\n经过星星时的回调,`this`指向`target`，参数为当前经过的星星值(星星值由左到右从1开始)\r\n\r\n### onleave <em>function(number,hoverNumber,target)</em>\r\n离开整个评分区域的回调,`this`指向`target`，参数1为当前选择的星星值，参数2为当前经过到的值\r\n",
+  "tag": "stable",
+  "revision": "1b231d5b0efe6b53c4f607aa5c9fa0ad795cdde1",
+  "publisher": "airyland",
+  "md5": "e7e0293f18b3fca62375a67375ba5f3e",
+  "filename": "rater-1.1.2.tar.gz",
+  "created_at": "2014-05-20T14:34:25+08:00",
+  "updated_at": "2014-06-16T16:30:49+08:00"
+}

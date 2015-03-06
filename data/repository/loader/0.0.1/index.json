@@ -1,0 +1,42 @@
+{
+  "name": "loader",
+  "version": "0.0.1",
+  "description": "simple loader",
+  "keywords": [],
+  "homepage": "",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MoeKit/loader.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "jquery": "1.8.3",
+      "arale-overlay": "1.2.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    },
+    "engines": {
+      "seajs": "2.2.1"
+    },
+    "tests": "tests/*.js"
+  },
+  "dependencies": [
+    "jquery@1.8.3",
+    "arale-overlay@1.2.0"
+  ],
+  "readme": "# loader\r\n\r\n---\r\n\r\n[![spm version](http://spmjs.io/badge/loader)](http://spmjs.io/package/loader)\r\n[![Build Status](http://img.shields.io/travis/MoeKit/loader.svg)](https://travis-ci.org/MoeKit/loader)\r\n[![Coverage Status](http://img.shields.io/coveralls/MoeKit/loader.svg)](https://coveralls.io/r/MoeKit/loader)\r\n\r\n简单的加载提示\r\n\r\n---\r\n\r\n\r\n## Usage\r\n\r\n```js\r\nvar loader = require('loader');\r\nnew loader({\r\n   target:'#loader-box',\r\n   number: 4,\r\n   speed: 100\r\n}).show();\r\n```\r\n\r\n## 选项\r\n\r\n### target\r\n目标容器\r\n\r\n### number\r\n加载bar的数量\r\n\r\n### speed\r\n速度，单位为ms\r\n\r\n### style.width\r\n单个bar宽度\r\n\r\n### style.height\r\n单个bar高度\r\n\r\n## 方法\r\n\r\n### show\r\n显示加载条\r\n\r\n### hide\r\n隐藏加载条\r\n\r\n\r\n\r\n",
+  "tag": "stable",
+  "revision": "e59e664b8701e3e4a1014661ae0596ce2d0e3273",
+  "publisher": "airyland",
+  "md5": "f3efa6192db4f6adc63e349b8bee998b",
+  "filename": "loader-0.0.1.tar.gz",
+  "created_at": "2014-07-02T16:10:18+08:00",
+  "updated_at": "2014-07-03T15:24:47+08:00"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "arale-iframe-shim",
+  "version": "1.1.0",
+  "keywords": [
+    "utility",
+    "ie6",
+    "shim",
+    "dom"
+  ],
+  "homepage": "http://aralejs.org/iframe-shim/",
+  "description": "工具类，在 IE6 下生成 iframe 遮挡 select 和 object。此组件对开发者透明，开发者无需再判断浏览器版本。",
+  "author": "贯高 <sakura9515@gmail.com>",
+  "maintainers": [
+    "贯高 <sakura9515@gmail.com>",
+    "偏右 <afc163@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/iframe-shim.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/iframe-shim/issues"
+  },
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "jquery": "1.7.2",
+      "arale-position": "1.1.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    },
+    "buildArgs": "--ignore jquery"
+  },
+  "dependencies": [
+    "jquery@1.7.2",
+    "arale-position@1.1.0"
+  ],
+  "readme": "\n# iframe-shim\n\n---\n\n[![Build Status](https://secure.travis-ci.org/aralejs/iframe-shim.png)](https://travis-ci.org/aralejs/iframe-shim)\n\n工具类，在 IE6 下生成 iframe 遮挡 select。此组件对开发者透明，开发者无需再判断浏览器版本。\n\n<span style=\"font-size:120px;line-height:0.4;color:rgb(255, 140, 42);font-family:Menlo;\">☂</span>\n\n---\n\n## 使用说明\n\n\n### Instantialize `new Shim(target)`\n\n组件会根据传入的目标元素生成一个实例，实例化后会生成一个 iframe 插入到目标元素前，这样 iframe 的层级永远低于目标元素。\n\n开发者需要手动调用 `sync` 方法来同步 iframe 和目标元素。\n\n如果是 ie6 以外的浏览器只会返回一个空实例，什么都不执行。\n\n参数 `target` 是需要被遮挡的目标元素，可以传 `DOM Element` 或 `Selector`。\n\n\n```js\ndefine(function(require, exports, module) {\n    var Shim = require('iframe-shim');\n\n    var shim = new Shim('#target');\n    shim.sync();\n});\n```\n\n**注意：**\n\n* iframe 的宽高是根据目标元素计算的，目标元素的宽高是包括 border的，例如目标元素的 width 为 100px，border 为 1px，iframe 的 width 为 102px。\n\n### sync `shim.sync()`\n\n实例方法，此方法会根据目标元素的变化而改变 iframe 的样式。\n\n有以下几种情况 iframe 会改变：\n\n1. 目标元素的宽高及 border 改变后 iframe 的宽高也会相应改变。\n1. 目标元素或父级元素 `display: none`，iframe 会隐藏。\n1. 目标元素宽和高等于 0 （包括 border ），iframe 会隐藏。\n1. 目标元素移动后 iframe 定位会改变。\n\nsync 可进行链式操作，上面的例子可直接一行完成：\n\n```js\nvar shim = new Shim('#target').sync();\n```\n\n**注意：**\n\n* 如果目标元素有变化，需要同步 shim 时，需要在目标元素变化之后，再调用 `sync` 方法：\n\n```js\ntarget.show();\nshim.sync(); // 在 target 显示之后，再同步 shim 的显示。\n```\n\n\n### destroy `shim.destroy()`\n\n实例方法，销毁 iframe 等。\n\n\n\n\n[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aralejs/iframe-shim/trend.png)](https://bitdeli.com/free \"Bitdeli Badge\")\n\n",
+  "tag": "stable",
+  "publisher": "airyland",
+  "md5": "741c6be0f0fab7ea677c642d859ebb08",
+  "filename": "arale-iframe-shim-1.1.0.tar.gz",
+  "created_at": "2014-05-21T23:01:56+08:00",
+  "updated_at": "2014-07-06T08:44:00+08:00",
+  "dependents": [
+    "arale-calendar@1.1.0",
+    "calendar@1.1.0",
+    "arale-overlay@1.2.0"
+  ]
+}

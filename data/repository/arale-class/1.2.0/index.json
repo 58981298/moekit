@@ -1,0 +1,39 @@
+{
+  "name": "arale-class",
+  "version": "1.2.0",
+  "keywords": [
+    "infrastructure"
+  ],
+  "description": "提供简洁的 OO 实现。",
+  "homepage": "http://aralejs.org/class/",
+  "author": "玉伯 <lifesinger@gmail.com>",
+  "maintainers": [
+    "玉伯 <lifesinger@gmail.com>",
+    "贯高 <sakura9515@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/class.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/class/issues"
+  },
+  "spm": {
+    "main": "class.js",
+    "devDependencies": {
+      "expect": "0.3.1"
+    },
+    "engines": {
+      "seajs": "2.2.1"
+    },
+    "tests": "tests/*-spec.js"
+  },
+  "dependencies": [],
+  "readme": "# Class\n\n---\n\n[![spm package](http://spmjs.io/badge/arale-class)](http://spmjs.io/package/arale-class)\n[![Build Status](https://secure.travis-ci.org/aralejs/class.png?branch=master)](https://travis-ci.org/aralejs/class)\n[![Coverage Status](https://coveralls.io/repos/aralejs/class/badge.png?branch=master)](https://coveralls.io/r/aralejs/class)\n\n\n提供简洁的 OO 实现。\n\n---\n\n\n## 使用说明\n\n\n### create `Class.create([parent], [properties])`\n\n创建一个新类。参数 `parent` 是继承的父类，`properties` 是要混入的实例属性。\n\n来看一个简单的例子（<a href=\"http://jsfiddle.net/noahua/fUSEC/3/\" target=\"_blank\">线上演示</a>）：\n\n```js\n/* pig.js */\ndefine(function(require, exports, module) {\n    var Class = require('class');\n\n    var Pig = Class.create({\n        initialize: function(name) {\n            this.name = name;\n        },\n\n        talk: function() {\n            alert('我是' + this.name);\n        }\n    });\n\n    module.exports = Pig;\n});\n```\n\n`initialize` 属性，标明初始化方法，会在构建实例时调用。\n\n使用 `create` 方法创建的类，拥有 `extend` 方法，可以继续创建子类：\n\n```js\n/* red-pig.js */\ndefine(function(require, exports, module) {\n    var Pig = require('./pig');\n\n    var RedPig = Pig.extend({\n        initialize: function(name) {\n            RedPig.superclass.initialize.call(this, name);\n        },\n\n        color: '红色'\n    });\n\n    module.exports = RedPig;\n});\n```\n\n**注意**：需要在子类方法中，调用父类中的同名方法时，JavaScript 语言自身并没有提供类似 `super`\n的方式来轻松实现。用 `create` 或 `extend` 方法创建类时，可以使用 `superclass.methodName`\n来显式调用父类方法。之所以不提供 `super` 方法，原因有二：\n\n1. 实现起来较麻烦。现有类库的实现方案，都不完美。\n2. 在 JavaScript 编程中，调用 `super` 的需求并不多。简单通过 `superclass.methodName`\n来调用已经能够满足需求，并很灵活、清晰。\n\n`properties` 参数中，除了支持用 `initialize` 来标明初始化方法，还可以用 `Implements`\n来标明所创建的类需要从哪些类中混入属性：\n\n```js\n/* flyable.js */\ndefine(function(require, exports, module) {\n    exports.fly = function() {\n        alert('我飞起来了');\n    };\n});\n```\n\n```js\n/* flyable-red-pig.js */\ndefine(function(require, exports, module) {\n    var RedPig = require('./red-pig');\n    var Flyable = require('./flyable');\n\n    var FlyableRedPig = RedPig.extend({\n        Implements: Flyable,\n\n        initialize: function(name) {\n            FlyableRedPig.superclass.initialize.call(this, name);\n        }\n    });\n\n    module.exports = FlyableRedPig;\n});\n```\n\n**注意**：`Implements` 采用首字母大写，是因为小写的 `implements` 是 JavaScript\n保留字。大写也表示其特殊性，与 MooTools 的方式一致。\n\n除了 `Implements`, 还有一个特殊属性：\n\n- `Extends` - 用来指定继承的父类，注意只能有一个父类，不支持多继承。\n\n\n### implement `SomeClass.implement(properties)`\n\n该方法与 `Implements` 属性的功能类似。当某个类已存在，需要动态修改时，用 `implement`\n方法更便捷。\n\n\n```js\n/* flyable-red-pig-extension.js */\ndefine(function(require, exports, module) {\n    var FlyableRedPig = require('./flyable-red-pig');\n\n    FlyableRedPig.implement({\n       swim: function() {\n           alert('我还会游泳');\n       }\n    });\n});\n```\n\n这样，我们得到了会说话、会飞、还会游泳的飞天红猪侠：\n\n```js\n/* test.js */\ndefine(function(require, exports, module) {\n    var FlyableRedPig = require('./flyable-red-pig');\n    require('./flyable-red-pig-extension');\n\n    var pig = new FlyableRedPig('飞天红猪侠');\n    pig.talk(); // alerts '我是飞天红猪侠'\n    pig.fly();  // alerts '我飞起来了'\n    pig.swim(); // alerts '我还会游泳'\n});\n```\n\n\n### extend `SomeClass.extend(properties)`\n\n由 `Class.create` 创建的类，自动具有 `extend` 方法，功能与 `Class.create`\n完全一样，只是继承的父类是 `SomeClass` 自身，前面的例子中已说明，不赘述。\n\n\n### Class `Class(fn)`\n\n将已经存在的 function 函数转换为 Class 类：\n\n```js\nfunction Animal() {\n}\nAnimal.prototype.talk = function() {};\n\nvar Dog = Class(Animal).extend({\n    swim: function() {}\n});\n```\n\n\n## 性能对比\n\n- <http://jsperf.com/class-perfs/9>\n\n",
+  "tag": "stable",
+  "publisher": "airyland",
+  "md5": "de9a7441cad89c839544e56ac468b65e",
+  "filename": "arale-class-1.2.0.tar.gz",
+  "created_at": "2014-05-21T23:44:55+08:00",
+  "updated_at": "2014-05-21T23:44:55+08:00"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "slicker",
+  "version": "1.3.14",
+  "description": "the last carousel you'll ever need",
+  "main": "slick/slick.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenwheeler/slick.git"
+  },
+  "keywords": [
+    "carousel",
+    "slick",
+    "responsive"
+  ],
+  "author": "Ken Wheeler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kenwheeler/slick/issues"
+  },
+  "spm": {
+    "main": "index.js",
+    "output": [
+      "slick/slick.css",
+      "slick/ajax-loader.gif",
+      "slick/fonts/slick.eot",
+      "slick/fonts/slick.svg",
+      "slick/fonts/slick.ttf",
+      "slick/fonts/slick.woff"
+    ],
+    "dependencies": {
+      "jquery": "1.8.3"
+    },
+    "buildArgs": "--ignore jquery"
+  },
+  "tag": "stable",
+  "readme": "slick\r\n-------\r\n\r\n[1]: <https://github.com/kenwheeler/slick>\r\n\r\n_the last carousel you'll ever need_\r\n\r\n#### Demo\r\n\r\n[http://kenwheeler.github.io/slick](http://kenwheeler.github.io/slick/)\r\n\r\n#### CDN\r\n\r\nCDN hosted slick is a great way to get set up quick:\r\n\r\nIn your ```<head>``` add:\r\n\r\n````\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"//cdn.jsdelivr.net/jquery.slick/1.3.6/slick.css\"/>\r\n````\r\n\r\nThen, before your closing ```<body>``` tag add:\r\n\r\n```\r\n<script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/jquery.slick/1.3.6/slick.min.js\"/></script>\r\n```\r\n\r\n#### Options\r\n\r\n\r\nOption | Type | Default | Description\r\n------ | ---- | ------- | -----------\r\naccessibility | boolean | true | Enables tabbing and arrow key navigation\r\nautoplay | boolean | false | Enables auto play of slides\r\nautoplaySpeed | int  | 3000 | Auto play change interval\r\ncenterMode | boolean | false | Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.\r\ncenterPadding | string | '50px' | Side padding when in center mode. (px or %)\r\ncssEase | string |  'ease' | CSS3 easing\r\ncustomPaging | function | n/a | Custom paging templates. See source for use example.\r\ndots | boolean | false | Current slide indicator dots\r\ndraggable | boolean | true | Enables desktop dragging\r\neasing | string |  'linear' | animate() fallback easing\r\nfade | boolean | false | Enables fade\r\narrows | boolean | true | Enable Next/Prev arrows\r\ninfinite | boolean | true | Infinite looping\r\nlazyLoad | string | 'ondemand' | Accepts 'ondemand' or 'progressive' for lazy load technique\r\nonBeforeChange(this, index) | method | null | Before slide change callback\r\nonAfterChange(this, index) | method | null | After slide change callback\r\nonInit(this) | method | null | When Slick initializes for the first time callback\r\nonReInit(this) | method | null | Every time Slick (re-)initializes callback\r\npauseOnHover | boolean | true | Pauses autoplay on hover\r\nresponsive | object | null | Breakpoint triggered settings\r\nslide | string | 'div' | Slide element query\r\nslidesToShow | int | 1 | # of slides to show at a time\r\nslidesToScroll | int | 1 | # of slides to scroll at a time\r\nspeed | int | 300 | Transition speed\r\nswipe | boolean | true | Enables touch swipe\r\ntouchMove | boolean | true | Enables slide moving with touch\r\ntouchThreshold | int | 5 | Swipe distance threshold\r\nuseCSS | boolean | true | Enable/Disable CSS Transitions\r\nvertical | boolean | false | Vertical slide direction\r\n\r\n#### Methods\r\n\r\nMethod | Argument | Description\r\n------ | -------- | -----------\r\nslick() | options : object | Initializes Slick\r\nunslick() |  | Destroys Slick\r\nslickNext() |  |  Triggers next slide\r\nslickPrev() | | Triggers previous slide\r\nslickPause() | | Pause Autoplay\r\nslickPlay() | | Start Autoplay\r\nslickGoTo() | index : int | Goes to slide by index\r\nslickCurrentSlide() |  |  Returns the current slide index\r\nslickAdd() | element : html or DOM object, index: int, addBefore: bool | Add a slide. If an index is provided, will add at that index, or before if addBefore is set. If no index is provided, add to the end or to the beginning if addBefore is set. Accepts HTML String || Object\r\nslideRemove() | index: int, removeBefore: bool | Remove slide by index. If removeBefore is set true, remove slide preceding index, or the first slide if no index is specified. If removeBefore is set to false, remove the slide following index, or the last slide if no index is set.\r\nslickFilter() | filter : selector or function | Filters slides using jQuery .filter syntax\r\nslickUnfilter() | | Removes applied filter\r\nslickSetOption(option,value,refresh) | option : string(option name), value : depends on option, refresh : boolean | Sets an option live. Set refresh to true if it is an option that changes the display\r\n\r\n\r\n#### Example\r\n\r\nInitialize with:\r\n\r\n```javascript\r\n$(element).slick({\r\n  dots: true,\r\n  speed: 500\r\n});\r\n ```\r\n\r\nDestroy with:\r\n\r\n```javascript\r\n$(element).unslick();\r\n```\r\n\r\n#### Dependencies\r\n\r\njQuery 1.7\r\n\r\n#### License\r\n\r\nCopyright (c) 2014 Ken Wheeler\r\n\r\nLicensed under the MIT license.\r\n\r\nFree as in Bacon.\r\n",
+  "dependencies": [
+    "jquery@1.8.3"
+  ],
+  "publisher": "airyland",
+  "md5": "dc21f48fe3bf8c105be04f2c4fbcb8c6",
+  "filename": "slicker-1.3.14.tar.gz",
+  "created_at": "2014-12-12T16:00:34+08:00",
+  "updated_at": "2015-01-05T14:36:27+08:00"
+}

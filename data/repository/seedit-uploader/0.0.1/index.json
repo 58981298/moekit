@@ -1,0 +1,40 @@
+{
+  "name": "seedit-uploader",
+  "version": "0.0.1",
+  "description": "seedit image uploader",
+  "keywords": [],
+  "homepage": "",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lizheng/seedit-uploader.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "iframe-ajax": "0.0.7",
+      "jquery": "1.8.3",
+      "seedit-config": "0.1.1"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "dependencies": [
+    "iframe-ajax@0.0.7",
+    "jquery@1.8.3",
+    "seedit-config@0.1.1"
+  ],
+  "readme": "# seedit-uploader [![spm version](http://spmjs.io/badge/seedit-uploader)](http://spmjs.io/package/seedit-uploader)\r\n\r\n---\r\n\r\n图片上传组件，用以替代原来的flash上传\r\n\r\n---\r\n\r\n## API\r\n\r\n```javascript\r\nseajs.use('index', function(seeditUploader) {\r\n\tnew seeditUploader({\r\n        target:'#target', // 目标\r\n        type:'image', // 类型，现在只支持image\r\n        limit:3 // 大小，单位为M\r\n    },function(data){\r\n\t\tconsole.log(data);\r\n\t});\r\n});\r\n```\r\n\r\n## 测试\r\n\r\n测试页面必须使用(HOST绑定)符合3个环境的子域名。\r\n\r\n+ x.username.bzdev.net,如dev.csf.bzdev.net\r\n+ x.username.bozhong.com,如dev.csf.bozhong.com\r\n+ x.seedit.com,如dev.seedit.com\r\n\r\n本地没有source服务，要绑定到`*.office.bzdev.net`,使用内网的source服务。\r\n",
+  "tag": "stable",
+  "revision": "6883f616ed53138b969cfc5670c5f79b722eb0f9",
+  "publisher": "airyland",
+  "md5": "076e2aac95ae8ac9e6eb679fc935a60c",
+  "filename": "seedit-uploader-0.0.1.tar.gz",
+  "created_at": "2014-09-04T11:26:35+08:00",
+  "updated_at": "2014-09-25T14:55:17+08:00"
+}

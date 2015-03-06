@@ -1,0 +1,29 @@
+{
+  "name": "json-fallback",
+  "version": "1.0.0",
+  "repo": "component/json",
+  "description": "JSON parser / stringifier fallback",
+  "keywords": [
+    "json",
+    "fallback"
+  ],
+  "dependencies": [],
+  "scripts": [
+    "index.js"
+  ],
+  "development": {
+    "component/assert": "*"
+  },
+  "spm": {
+    "main": "index.js",
+    "dependencies": {}
+  },
+  "homepage": "https://github.com/component/json",
+  "readme": "\n# json-fallback\n\n  JSON parser / stringifier fallback for [json](https://github.com/component/json).\n\n## Installation\n\n    $ component install component/json-fallback\n\n# License\n\n  MIT\n\n\n",
+  "tag": "stable",
+  "publisher": "airyland",
+  "md5": "991943523723879d298993402508b42d",
+  "filename": "json-fallback-1.0.0.tar.gz",
+  "created_at": "2014-05-21T15:31:03+08:00",
+  "updated_at": "2014-05-21T15:31:03+08:00"
+}

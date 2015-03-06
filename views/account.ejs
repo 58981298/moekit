@@ -1,0 +1,67 @@
+<% include header %>
+<div class="profile">
+  <img class="profile-avatar" align="right" alt="" src="<%=  profile.avatar_url %>s=180" width="180">
+  <h2><%= profile.login %></h2>
+  <p>
+    <label>Name:</label>
+    <%= profile.name || '' %> -
+    <%= profile.followers || 0 %> <span class="profile-stat">Followers</span> -
+    <%= profile.public_repos || 0 %> <span class="profile-stat">Repos</span>
+  </p>
+  <p>
+    <label>Github:</label>
+    <a target="_blank" href="<%= profile.html_url %>"><%= profile.html_url %></a>
+  </p>
+  <% if (profile.email) { %>
+  <p>
+    <label>Email:</label>
+    <a href="mailto:<%= profile.email %>"><%= profile.email %></a>
+  </p>
+  <% } %>
+  <% if (profile.blog) { %>
+  <p>
+    <label>Blog:</label>
+    <a target="_blank" href="<%= (profile.blog.indexOf('http') >= 0 ? '' : 'http://') + profile.blog %>"><%= profile.blog %></a>
+  </p>
+  <% } %>
+  <% if (profile.location) { %>
+  <p>
+    <label>Location:</label>
+    <span><%= profile.location %></span>
+  </p>
+  <% } %>
+  <% if (profile.authkey) { %>
+  <p>
+    <label>Authkey:</label>
+    <input type="text" id="authkey" readonly size="30" value="<%= profile.authkey %>">
+  </p>
+  <p>
+    <label></label>
+    <span class="security-tip">
+      <i class="iconfont">&#xf00c9;</i>
+      Copy authkey above for <em>spm login</em>, and do not tell it to anybody.
+      Revoke it in <a target="_blank" href="https://github.com/settings/applications">here</a>.
+    </span>
+  </p>
+  <% } %>
+</div>
+
+<div class="packages">
+  <h2>Owned Packages (<%= ownPackages.length || 0 %>)</h2>
+  <% if (ownPackages.length > 0) { %>
+    <% ownPackages.forEach(function(name, i) { %>
+      <a href="/package/<%= name %>"><%= name %></a><% if(i!==ownPackages.length-1){ %>,<% } %>
+    <% }) %>
+  <% } else { %>
+    No owned packages.
+  <% } %>
+  <p><i>If you need any ownership of the packages, contact this human.</i></p>
+</div>
+<script>
+seajs.use(['$'], function($) {
+  $('#authkey').click(function() {
+    $(this).select();
+  });
+});
+</script>
+<% include footer %>

@@ -1,0 +1,39 @@
+{
+  "name": "name-store",
+  "version": "1.1.0",
+  "description": "Storage via window.name",
+  "homepage": "https://github.com/aralejs/name-storage",
+  "author": "闲耘<hotoo.cn@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aralejs/name-storage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/name-storage/issues"
+  },
+  "scripts": {
+    "prepublish": "spm build"
+  },
+  "keywords": [
+    "utility"
+  ],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "dependencies": [],
+  "readme": "# nameStorage\r\n\r\n---\r\n\r\n[![spm package](http://spmjs.io/badge/name-storage)](http://spmjs.io/package/name-storage)\r\n[![Build Status](https://secure.travis-ci.org/aralejs/name-storage.png?branch=master)](https://travis-ci.org/aralejs/name-storage)\r\n[![Coverage Status](https://coveralls.io/repos/aralejs/name-storage/badge.png?branch=master)](https://coveralls.io/r/aralejs/name-storage)\r\n\r\nnameStorage 是类似 sessionStroage 的键值对数据存储工具，但是可以跨域。\r\n\r\nnameStorage 适用于同一窗口内跨页面数据存储与传递。\r\n\r\n技术上，nameStorage 使用 window.name 存储数据。\r\n数据的生存周期为窗口会话的生存周期，同一个窗口可以通过 nameStorage 共享数据。\r\n\r\n## 出生证明\r\n\r\n`window.name` 非常有用，但不可滥用。\r\n为了规范、简单便利、安全的使用 `window.name`，制造了这个模块。\r\n\r\n更多请参考 `window.name` 使用规范。\r\n\r\n## 使用说明\r\n\r\n```js\r\nvar key = \"key\";\r\nvar value = \"value\";\r\n\r\nnameStorage.setItem(key, value);\r\n\r\nnameStorage.getItem(key);\r\n\r\nnameStorage.removeItem(key);\r\n```\r\n\r\n\r\n## API\r\n\r\n### setItem(String key, String value)\r\n\r\n写入数据到 nameStorage。\r\n\r\n### getItem(String key)\r\n\r\n读取 nameStorage 存储的指定键值数据。\r\n\r\n### removeItem(String key)\r\n\r\n删除 nameStorage 存储的指定键值数据。\r\n\r\n### clear()\r\n\r\n清空 nameStorage 存储的数据。\r\n\r\n### valueOf()\r\n\r\n读取 nameStorage 存储的所有数据。\r\n\r\n### toString()\r\n\r\n返回 nameStorage 存储的数据的字符串形式。\r\n\r\n```\r\n    scheme                  nameStorage datas\r\n      |                            |\r\n------------           ------------------------\r\nnameStorage:origin-name?key1=value1&key2=value2\r\n            -----------\r\n                 |\r\n         window origin name\r\n```\r\n\r\n## window.name 使用规范\r\n\r\n1. 不要直接操作 `window.name`。\r\n1. 几乎所有的 `window.name` 操作，均应使用 nameStorage 提供的接口完成。\r\n1. 使用 nameStorage 传输完数据后，尽量在恰当的时机使用 `removeItem()` 清理对应数据。\r\n1. 主意：为了避免误清理其他人的数据，尽量使用 `removeItem()` 清理指定数据，\r\n    而不是 `clear()` 清空所有数据。\r\n\r\n## window.name maxlength\r\n\r\nwindow.name 没有固定的长度限制，只受内存大小限制。\r\n\r\n## 参考\r\n\r\n* [Improve cross-domain communication with client-side solutions](http://www.ibm.com/developerworks/library/wa-crossdomaincomm/)\r\n* [HTML5 sessionStorage for \"every\" browsers](https://code.google.com/p/sessionstorage/)\r\n\r\n## LICENSES\r\n\r\nMIT\r\n",
+  "tag": "stable",
+  "revision": "41534eeb5408aed9a880952babd646ca1f763716",
+  "publisher": "airyland",
+  "md5": "33a4dc7114bd58b0030addcad59c6ae6",
+  "filename": "name-store-1.1.0.tar.gz",
+  "created_at": "2014-07-02T20:06:35+08:00",
+  "updated_at": "2014-12-18T14:26:58+08:00",
+  "dependents": [
+    "i-tracker@0.0.1"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "arale-base",
+  "version": "1.2.0",
+  "description": "Base 是一个基础类，提供 Class、Events、Attribute 和 Aspect 支持。",
+  "keywords": [
+    "infrastructure"
+  ],
+  "homepage": "http://aralejs.org/base",
+  "author": "贯高 <sakura9515@gmail.com>",
+  "maintainers": [
+    "玉伯 <lifesinger@gmail.com>",
+    "贯高 <sakura9515@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/base/issues"
+  },
+  "spm": {
+    "dependencies": {
+      "arale-class": "1.2.0",
+      "arale-events": "1.2.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1",
+      "sinon": "1.6.0",
+      "moment": "2.6.0",
+      "jquery": "1.7.2"
+    },
+    "main": "base.js"
+  },
+  "dependencies": [
+    "arale-class@1.2.0",
+    "arale-events@1.2.0"
+  ],
+  "readme": "# Base\n\n---\n\n[![spm package](http://spmjs.io/badge/arale-base)](http://spmjs.io/package/arale-base)\n[![Build Status](https://travis-ci.org/aralejs/base.png)](https://travis-ci.org/aralejs/base) [![Coverage Status](https://coveralls.io/repos/aralejs/base/badge.png?branch=master)](https://coveralls.io/r/aralejs/base)\n\nBase 是一个基础类，提供 [Class](http://aralejs.org/class/)、[Events](http://aralejs.org/events/)、Attribute 和 Aspect 支持。\n\n---\n\n## 使用说明\n\n### extend `Base.extend(properties)`\n\n基于 Base 创建子类。例子：\n\n```js\n/* pig.js */\ndefine(function(require, exports, module) {\n    var Base = require('base');\n\n    var Pig = Base.extend({\n        attrs: {\n            name: ''\n        },\n        talk: function() {\n            alert('我是' + this.get('name'));\n        }\n    });\n\n    module.exports = Pig;\n});\n```\n\n继承 Base 可覆盖 initialize 构造函数， **但需要调用父类构造函数**，如 arale 的 widget 定义了组件的生命周期\n\n```js\n/* widget.js */\ndefine(function(require, exports, module) {\n    var Base = require('base');\n\n    var Widget = Base.extend({\n        initialize: function(config) {\n            Widget.superclass.initialize.call(this, config);\n            this.parseElement()\n            this.initProps()\n            this.delegateEvents()\n            this.setup()\n        },\n        ...\n    });\n\n    module.exports = Widget;\n});\n```\n\nBase 继承和混入了一下功能，可查看文档 ：\n\n- [Class 使用文档](http://aralejs.org/class/)\n- [Events 使用文档](http://aralejs.org/events/)\n- [Attribute 使用文档](http://aralejs.org/base/docs/attribute.html)\n- [Aspect 使用文档](http://aralejs.org/base/docs/aspect.html)\n\n\n### Base 与 Class 的关系\n\nBase 是使用 `Class` 创建的一个基础类，默认混入了 `Events`、`Attribute`、`Aspect` 模块：\n\n```js\n/* base.js */\ndefine(function(require) {\n\n    var Class = require('class');\n    var Events = require('events');\n    var Aspect = require('./aspect');\n    var Attribute = require('./attribute');\n\n    var Base = Class.create({\n        Implements: [Events, Aspect, Attribute],\n\n        initialize: function(config) {\n            ...\n        },\n\n        ...\n    });\n\n    ...\n});\n```\n",
+  "tag": "stable",
+  "revision": "4d4ae7de7423818ace65050b71d66507697482fd",
+  "publisher": "airyland",
+  "md5": "f70f8c9e63a6b6037edc8e557df2bbba",
+  "filename": "arale-base-1.2.0.tar.gz",
+  "created_at": "2014-05-20T16:14:15+08:00",
+  "updated_at": "2014-09-01T11:30:14+08:00",
+  "dependents": [
+    "arale-widget@1.2.0",
+    "arale-calendar@1.1.0",
+    "arale-dnd@1.1.0",
+    "calendar@1.1.0",
+    "arale-autocomplete@1.4.0"
+  ]
+}

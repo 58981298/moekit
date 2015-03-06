@@ -1,0 +1,31 @@
+{
+  "name": "opslider",
+  "version": "0.0.2",
+  "description": "",
+  "keywords": [],
+  "homepage": "",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yyydao/opslider"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "tag": "stable",
+  "readme": "# opslider [![spm version](http://spmjs.io/badge/opslider)](http://spmjs.io/package/opslider)\r\n\r\n---\r\n\r\nAn awesome spm package!\r\n\r\n---\r\n\r\n## Install\r\n\r\n```\r\n$ spm install opslider --save\r\n```\r\n\r\n## Usage\r\n\r\n```js\r\nvar opslider = require('opslider');\r\n// use opslider\r\n```\r\n",
+  "dependencies": [],
+  "publisher": "yyydao",
+  "md5": "623d37000b5f23d1d1d30e04a3e859f5",
+  "filename": "opslider-0.0.2.tar.gz",
+  "created_at": "2015-02-04T15:26:23+08:00",
+  "updated_at": "2015-02-04T15:26:23+08:00"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "atwho",
+  "version": "0.5.0",
+  "author": {
+    "name": "chord.luo",
+    "email": "chord.luo@gmail.com"
+  },
+  "homepage": "http://ichord.github.com/At.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt test --verbose"
+  },
+  "dependencies": [
+    "caret@0.1.0",
+    "jquery@1.8.3"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-coffee": "~0.10.0",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-contrib-jasmine": "~0.6.1",
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-json-replace": "~0.1.2",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-cssmin": "~0.9.0"
+  },
+  "spm": {
+    "main": "./dist/js/jquery.atwho.js",
+    "buildArgs": "--ignore jquery",
+    "dependencies": {
+      "caret": "0.1.0",
+      "jquery": "1.8.3"
+    }
+  },
+  "readme": "**An autocompletion library to autocomplete mentions, smileys etc. just like on Github!**  \r\n[![Build Status](https://travis-ci.org/ichord/At.js.png)](https://travis-ci.org/ichord/At.js)\r\n\r\n#### Notice\r\n\r\nAt.js now **depends on** [Caret.js](https://github.com/ichord/Caret.js).  \r\nPlease read [**CHANGELOG.md**](CHANGELOG.md) for more details if you are going to update to new version.\r\n\r\n### Demo\r\nhttp://ichord.github.com/At.js\r\n\r\n### Documentation\r\nhttps://github.com/ichord/At.js/wiki\r\n\r\n\r\n### Features Preview\r\n\r\n* Supports HTML5  [**contentEditable**](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_Editable) elements (NOT include IE 8)\r\n* Can listen to any character and not just '@'. Can set up multiple listeners for different characters with different behavior and data\r\n* Listener events can be bound to multiple inputors.\r\n* Format returned data using templates\r\n* Keyboard controls in addition to mouse\r\n    - `Tab` or `Enter` keys select the value\r\n    - `Up` and `Down` navigate between values (and `Ctrl-P` and `Ctrl-N` also)\r\n    - `Right` and `left` will re-search the keyword.\r\n* Custom data handlers and template renderers using a group of configurable callbacks\r\n* Supports AMD\r\n\r\n### Requirements\r\n\r\n* jQuery >= 1.7.0.\r\n* [Caret.js](https://github.com/ichord/Caret.js)\r\n    (You can use `Component` or `Bower` to install it.)\r\n\r\n### Integrating with your Application\r\n\r\nSimply include the following files in your HTML and you are good to go.\r\n\r\n```html\r\n<link href=\"css/jquery.atwho.css\" rel=\"stylesheet\">\r\n<script src=\"http://code.jquery.com/jquery.js\"></script>\r\n<script src=\"js/jquery.caret.js\"></script>\r\n<script src=\"js/jquery.atwho.js\"></script>\r\n```\r\n\r\n```javascript\r\n$('#inputor').atwho({\r\n    at: \"@\",\r\n    data:['Peter', 'Tom', 'Anne']\r\n})\r\n```\r\n\r\n#### Bower & Component\r\nFor installing using Bower you can use `jquery.atwho` and for Component please use `ichord/At.js`.\r\n\r\n#### Rails\r\nYou can include At.js in your `Rails` application using the gem [jquery-atwho-rails](https://github.com/ichord/jquery-atwho-rails).\r\n\r\n### Core Team Members\r\n\r\n* [@ichord](https://twitter.com/_ichord)\r\n\r\n------\r\n\r\nLet me know if you are using **At.js**. It will motivate me to work harder.  \r\nAnd if you like **At.js**, just email me and add your website [here](https://github.com/ichord/At.js/wiki/Sites)  \r\nHope you like it, Thanks! :)\r\n",
+  "tag": "stable",
+  "revision": "cfc0caa8dd3bf6bd48ba47f6f85a910a3ee26358",
+  "publisher": "airyland",
+  "md5": "5edb73c786ad32434023d0d2c74d9e1c",
+  "filename": "atwho-0.5.0.tar.gz",
+  "created_at": "2014-08-30T01:50:55+08:00",
+  "updated_at": "2014-08-30T01:50:55+08:00"
+}

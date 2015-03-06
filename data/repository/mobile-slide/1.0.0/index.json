@@ -1,0 +1,46 @@
+{
+  "name": "mobile-slide",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/lizheng/mobileSlide",
+  "author": "airyland",
+  "maintainers": [
+    "airyland"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lizheng/mobileSlide.git"
+  },
+  "bugs": {
+    "url": "git://github.com/lizheng/mobileSlide.git/issues"
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "zepto": "1.1.3"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1",
+      "seajs": "2.2.1",
+      "zepto": "1.1.3"
+    },
+    "engines": {
+      "seajs": "2.2.1"
+    },
+    "tests": "tests/*.js",
+    "buidArgs": "--withoug zepto"
+  },
+  "dependencies": [
+    "zepto@1.1.3"
+  ],
+  "readme": "# mobile-slide\n\n---\n\n[![spm version](http://spmjs.io/badge/mobile-slide)](http://spmjs.io/package/mobile-slide)\n\nAn awesome spm package!\n\n---\n\n## Install\n\n```\n$ spm install mobile-slide --save\n```\n\n## Usage\n\n```js\nvar mobile-slide = require('mobile-slide');\n// use mobile-slide\n```\n\n## Api\n\nHere is more details.\n\n",
+  "tag": "stable",
+  "revision": "e2c0f39dbfd6c0cf14f198e5414cd8c82702d083",
+  "publisher": "airyland",
+  "md5": "bc9878ee32bbcbb8265ec1dd08d5c0a6",
+  "filename": "mobile-slide-1.0.0.tar.gz",
+  "created_at": "2014-05-25T17:34:10+08:00",
+  "updated_at": "2014-05-25T17:34:10+08:00"
+}

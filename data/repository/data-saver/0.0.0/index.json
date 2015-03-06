@@ -1,0 +1,35 @@
+{
+  "name": "data-saver",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "",
+  "author": "airyland <airyland@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "eventor": "0.0.3"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "dependencies": [
+    "eventor@0.0.3"
+  ],
+  "tag": "stable",
+  "readme": "# data-saver [![spm version](https://moekit.timo.today/badge/data-saver)](https://moekit.timo.today/package/data-saver)\n\n---\n\n\n\n## 使用\n\n用于在页面中push数据，无论该模块是否已经加载。\n\n加载后会获取seekr这个数组的数据进行初始化，并且覆盖`seekr`全局变量。\n\n## 方法\n\n+ `push`\n\n## 代码\n\n在任何情景下都可以使用`seekr`来push数据\n\n````javascript\nvar seekr = seekr || [];\nseekr.push({\n\tev:'hello',\n\tdata:{\n\t\tdetail: ''\n\t}\n});\n````\n",
+  "publisher": "airyland",
+  "md5": "7dece6ccafd93b0fb4e39183e87b881c",
+  "filename": "data-saver-0.0.0.tar.gz",
+  "created_at": "2014-11-15T16:23:14+08:00",
+  "updated_at": "2014-11-15T16:23:14+08:00"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "iframeajax",
+  "version": "0.0.3",
+  "family": "moe",
+  "description": "ajax by iframe",
+  "homepage": "https://github.com/airyland/seedit.iframeAjax",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airyland/seedit.iframeAjax"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "alias": {},
+    "devAlias": {},
+    "engines": {},
+    "dependencies": {
+      "jquery": "1.8.3",
+      "expect": "0.3.1"
+    },
+    "buildArgs": "--ignore jquery"
+  },
+  "dependencies": [
+    "jquery@1.8.3",
+    "expect@0.3.1"
+  ],
+  "readme": "# iframeAjax\n\n---\n\n[![Build Status](https://secure.travis-ci.org/airyland/seedit.iframeAjax.png)](https://travis-ci.org/airyland/seedit.iframeAjax)\n[![Coverage Status](https://coveralls.io/repos/airyland/seedit.iframeAjax/badge.png?branch=master)](https://coveralls.io/r/airyland/iframeAjax)\n\n\nIE(6)跨域坑爹。因此通过为`jQuery.ajax`添加一个`iframe` `transport` 来实现`伪Ajax`请求。\n\n`注意:`这里的跨域是指`子域之间`和`主域与子域`之间的跨域。\n\n---\n\n\n\n## 使用说明\n和正常使用`$.ajax`一样，但是需要在`option`上加上`iframe:true`\n\n```javascript\nseajs.use('iframeAjax',function($){\n    $.ajax({\n        url: 'http://dev03.seedit.com/api.html',\n        iframe: true,\n        dataType: \"json\",\n        success: function(data) {\n            alert(data);\n        }\n    });\n});\n\n```\n\n\n## 服务端返回说明\n1.需要将内容包含于`textarea`标签中。\n\n2.如果为跨子域，那么需要在设定`document.domain`为主域名。\n\n```javascript\n<script>document.domain = 'seedit.com';</script>\n<textarea>{\"hello\":\"world\"}</textarea>\n```\n\n\n## todo\n\n+ 支持文件上传\n+ 支持直接从form表单提交，而不是现在的根据`data`建一个隐藏表单再提交。",
+  "tag": "stable",
+  "revision": "93fe69b84a4c3e90c7fac7ed7db70f9d38597bd8",
+  "publisher": "airyland",
+  "md5": "714ea9315b4ceaeede7a52655df37444",
+  "filename": "iframeajax-0.0.3.tar.gz",
+  "created_at": "2014-05-19T19:33:43+08:00",
+  "updated_at": "2014-05-19T19:33:43+08:00"
+}

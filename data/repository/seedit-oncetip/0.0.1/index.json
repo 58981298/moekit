@@ -1,0 +1,39 @@
+{
+  "name": "seedit-oncetip",
+  "version": "0.0.1",
+  "description": "show ad or tip once",
+  "keywords": [],
+  "homepage": "",
+  "author": "airyland <airyland@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "cookie-store": "0.0.9",
+      "jquery": "1.8.3",
+      "seedit-config": "0.1.1"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "tag": "stable",
+  "readme": "# seedit-oncetip [![spm version](https://moekit.timo.today/badge/seedit-oncetip)](https://moekit.timo.today/package/seedit-oncetip)\n\n---\n\n只显示一次的广告或者提示\n\n## 配置\n\n+ `storeId` 尽可能简短，用于cookie保存的key, 注意不要使用正在使用或者已经使用过的key。`最好为1~3个字母`。\n+ `scope` cookie保存的子域名，如`bbs`,`riji`,使用`all`时会保存到全域。`能保存到单个域就不要保存到全域`。\n+ `when` 函数，非必须，用于添加额外条件，判断什么时候显示广告\n+ `onShow` 显示逻辑，当cookie没有设置过，并且满足上面的`when`条件时调用\n\n## API\n\n+ `hasShown` 广告是否已经使用过\n+ `setHasShown(cb)` 关闭广告，cb为回调，cb不必需\n+ `clear` 清除该广告cookie\n+ `shouldBeShown` 广告是否应该显示\n\n## Usage\n\n一个只有fid为24的版块才显示的广告，cookie key 为`bk`，cookie保存在`bbs`，点击`.book-ooxx-close`时调用`setHasShown`来关闭广告。\n\n```js\nvar Oncetip = require('seedit-oncetip');\nvar ooxxer = new Oncetip({\n        storeId: 'bk',\n        scope: 'bbs',\n        when: function(){\n\t\t\treturn window.fid && window.fid === 24;\n        },\n        onShow: function() {\n                jQuery('#book_ooxx').fadeIn();\n                jQuery('.book-ooxx-close').click(function() {\n                    ooxxer.setHasShown(function() {\n                        jQuery('#book_ooxx').fadeOut();\n                    });\n                });\n        }\n    });\n```\n",
+  "dependencies": [
+    "cookie-store@0.0.9",
+    "jquery@1.8.3",
+    "seedit-config@0.1.1"
+  ],
+  "publisher": "airyland",
+  "md5": "9f22466c34ca801c4c11dcd1d397e636",
+  "filename": "seedit-oncetip-0.0.1.tar.gz",
+  "created_at": "2014-11-03T16:23:13+08:00",
+  "updated_at": "2014-11-03T16:41:58+08:00"
+}

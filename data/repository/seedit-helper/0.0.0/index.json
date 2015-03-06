@@ -1,0 +1,44 @@
+{
+  "name": "seedit-helper",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "",
+  "author": "airyland <airyland@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "seedit-bbs": "1.0.3",
+      "url": "1.2.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "devDependencies": {
+    "spm": "3"
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build"
+  },
+  "tag": "stable",
+  "readme": "# seedit-helper [![spm version](https://moekit.timo.today/badge/seedit-helper)](https://moekit.timo.today/package/seedit-helper)\n\n---\n公用方法\n\n\n\n## Usage\n\n```js\nvar seeditHelper = require('seedit-helper');\n// use seeditHelper\n```\n\n## API\n\n### getShortId(url)\n\n转换链接为短链接，方便统计。可能有遗漏，后面逐渐添加完整。\n\n规则如下：\n\n+ 帖子链接       => 'tid_1254'\n+ 版块链接       => 'fid_24',\n+ QA专题         => 'qa_10',\n+ 专家问答       => 'zj_9',\n+ 专家问答列表页 => 'zj_list'\n+ 其他链接       => 'link_base64的后面10个字符'\n",
+  "dependencies": [
+    "seedit-bbs@1.0.3",
+    "url@1.2.0"
+  ],
+  "publisher": "airyland",
+  "md5": "d042de98b2a4007691297d17f64746c0",
+  "filename": "seedit-helper-0.0.0.tar.gz",
+  "created_at": "2015-01-19T11:30:35+08:00",
+  "updated_at": "2015-01-19T11:30:35+08:00"
+}

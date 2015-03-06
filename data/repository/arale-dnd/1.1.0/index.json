@@ -1,0 +1,43 @@
+{
+  "name": "arale-dnd",
+  "version": "1.1.0",
+  "keywords": [
+    "utility"
+  ],
+  "description": "drag and drop",
+  "homepage": "https://github.com/aralejs/dnd",
+  "author": "ustccjw <317713370@qq.com>",
+  "maintainers": [
+    "ustccjw <317713370@qq.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/dnd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/dnd/issues"
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "jquery": "1.7.2",
+      "arale-base": "1.2.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    },
+    "buildArgs": "--ignore jquery"
+  },
+  "dependencies": [
+    "jquery@1.7.2",
+    "arale-base@1.2.0"
+  ],
+  "readme": "# Dnd\n\n---\n\n[![Build Status](https://secure.travis-ci.org/aralejs/dnd.png)](https://travis-ci.org/aralejs/dnd)\n[![Coverage Status](https://coveralls.io/repos/aralejs/dnd/badge.png?branch=master)](https://coveralls.io/r/aralejs/dnd)\n\nDrap & Drop\n\n## 配置说明\n\n### 属性\n\n#### element *element[Array]|selector*\n可拖放的元素, 即源节点\n>注: 支持多个元素, 非法时抛出异常\n\n#### containment *element[Array]|selector|null*\n拖放的边界, 默认为document\n>注: 只取第一个元素, element初始必须要位于containment的内部\n\n#### proxy *element[Array]|selector|null*\n代理元素, 实际上跟随鼠标移动的元素, 默认null为源节点element的clone\n>注: 只取选择器中的第一个元素\n\n#### drops *element[Array]|selector|null*\n可放置容器, 默认null为无\n>注: 可以有多个元素\n\n#### disabled *boolean*\n是否禁止该元素拖放, 默认false为不禁止\n\n#### visible *boolean*\n被拖放的元素在源位置上是否可见, 默认false为不可见\n\n#### axis *'x'|'y'|false*\n拖放指定的方向, 默认false为任意方向\n\n#### revert *boolean*\n是否返回源节点初始位置, 默认false为不返回\n>注: 当可放置容器不为null并且当前可放置容器为null时释放鼠标, 将返回源节点初始位置\n\n#### revertDuration *number*\n返回速度, 默认为500\n>注: 源节点显示(visible = true)时, 拖放结束时移动到拖放位置的速度也取此值\n\n#### draqCursor *string*\n拖放过程中没进入放置容器drop时光标形状, 默认为\"move\"\n\n#### dropCursor *string*\n拖放过程中进入放置容器drop时光标的形状, 默认为\"copy\"\n\n#### zIndex *number*\n代理元素proxy拖放过程中的z-index, 默认为9999\n\n\n### API\n\n#### Dnd(element, config)\n构造函数, element不能为空\n>注: element为空会抛出异常, config应为简单对象\n\n#### set(option, value)\n设置配置属性, element不能设置\n>注: 一切set设置应在拖放前\n\n#### get(option)\n获取配置属性\n>注: 配置属性为DOM元素的, 均返回其jquery对象\n\n#### open()\n静态方法, 用Dnd直接调用, 开启页面的拖放功能\n>注: 默认use dnd组件就自动open了\n\n#### close()\n静态方法, 用Dnd直接调用, 关闭页面的拖放功能\n\n\n### 事件\n\n#### dragstart (dataTransfer, proxy)\ndataTransfer为拖放数据, proxy为代理元素(元素对象均为jquery对象); 拖放开始时\n触发（按下鼠标并且至少移动1px),  常用来设置拖放数据dataTransfer\n\t\n#### drag (proxy, drop)\nproxy为代理元素, drop为当前可放置容器\n拖放中一直触发, 直到鼠标释放\n>注: drop有可能为空\n\n#### dragenter (proxy, drop)\nproxy为代理元素, drop为当前可放置容器\n鼠标刚进入可放置容器中触发\n\n#### dragover (proxy, drop)\nproxy为代理元素, drop为当前可放置容器\n鼠标在可放置容器中移动一直触发\n\n#### dragleave (proxy, drop)\nproxy为代理元素, drop为当前可放置容器\n鼠标刚离开可放置容器时触发\n\n#### drop (dataTransfer, proxy, drop)\nproxy为代理元素, drop为当前可放置容器\n鼠标在可放置容器中释放时触发, 常用来读取dataTransfer值\n\n#### dragend (element, drop)\nelement为源节点元素, drop为当前可放置容器; \n拖放结束后触发, 常和dragleave处理相同, 用来取消dragenter中的设置\n>注: 当没触发drop时, drop为null;\n\n\n### data-attr实现拖放\n\n#### 在data-attr上进行配置\ndata-dnd=true data-config为JSON字符串, 详细见演示\n>注: 这种方式不支持dataTransfer和一系列事件, 只是简单拖放\n\n\n## 最佳实践\n\n带有语义(拖放数据)的拖放\n```javascript\nseajs.use(['dnd', '$'], function(Dnd, $){\n\n    var proxy = document.createElement('img'),\n        dnd = null ;\n\n    $(proxy).on('load', function(){\n        dnd = new Dnd('#drag', {\n            drops: '#drop',\n            proxy: proxy,\n            visible: true, \n            revert: true\n        }) ;\n\n        // dataTransfer为拖放数据，传输信息\n        dnd.on('dragstart', function(dataTransfer, proxy){\n            dataTransfer.data = '玉伯也叫射雕' ;\n        })\n        dnd.on('dragenter', function(proxy, drop){\n            drop.addClass('over') ;\n        })\n        dnd.on('dragleave', function(proxy, drop){\n            drop.removeClass('over') ;\n        })\n        dnd.on('drop', function(dataTransfer, proxy, drop){\n            if(typeof(dataTransfer.data) !== 'undefined'){\n                drop.text(dataTransfer.data) ;\n            }\n        })\n        dnd.on('dragend', function(element, drop){\n            if(drop) drop.removeClass('over') ;\n        })\n    })\n    $(proxy).css('width', 50) ;\n    $(proxy).css('height', 50) ;\n    proxy.src = 'http://tp3.sinaimg.cn/1748374882/180/40020642911/1' ;\n});\n```\n\n用data-attr来实现的简单拖放\n```html\n<button data-dnd=true>I can drag</button>\n```\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aralejs/dnd/trend.png)](https://bitdeli.com/free \"Bitdeli Badge\")\n\n",
+  "tag": "stable",
+  "publisher": "airyland",
+  "md5": "daf318ba45726c2d84d1893bd90e2436",
+  "filename": "arale-dnd-1.1.0.tar.gz",
+  "created_at": "2014-05-21T23:43:16+08:00",
+  "updated_at": "2014-05-21T23:43:16+08:00"
+}

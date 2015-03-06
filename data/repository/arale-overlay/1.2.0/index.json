@@ -1,0 +1,53 @@
+{
+  "name": "arale-overlay",
+  "version": "1.2.0",
+  "description": "基础浮层组件，提供浮层显示隐藏、定位和 select 遮挡等特性。",
+  "keywords": [
+    "widget"
+  ],
+  "author": "偏右 <afc163@gmail.com>",
+  "maintainers": [
+    "偏右 <afc163@gmail.com>",
+    "贯高 <sakura9515@gmail.com>"
+  ],
+  "homepage": "http://aralejs.org/overlay/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/overlay"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/overlay/issues"
+  },
+  "spm": {
+    "main": "overlay.js",
+    "dependencies": {
+      "jquery": "1.7.2",
+      "arale-widget": "1.2.0",
+      "position": "1.1.0",
+      "arale-iframe-shim": "1.1.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1",
+      "sinon": "1.6.0"
+    },
+    "buildArgs": "--ignore jquery"
+  },
+  "dependencies": [
+    "jquery@1.7.2",
+    "arale-widget@1.2.0",
+    "position@1.1.0",
+    "arale-iframe-shim@1.1.0"
+  ],
+  "readme": "# Overlay\n\n---\n\n[![spm package](http://spmjs.io/badge/arale-overlay)](http://spmjs.io/package/arale-overlay)\n[![Build Status](https://secure.travis-ci.org/aralejs/overlay.png)](https://travis-ci.org/aralejs/overlay)\n[![Coverage Status](https://coveralls.io/repos/aralejs/overlay/badge.png?branch=master)](https://coveralls.io/r/aralejs/overlay)\n\n\n基础浮层组件，提供浮层显示隐藏、定位和 IE6 下 select 遮挡、窗口 resize 时重新定位、点击页面空白处浮层消失等等特性，是所有浮层类组件的基类。\n\n如果要开发一个浮层类的 UI 组件，可以基于它进行扩展，dialog、autocomplete、popup、select、calendar 等模块均继承了 Overlay 。\n\n<span style=\"font-size:120px;line-height:0.4;color:rgb(167, 159, 126);font-family:Menlo;\">❏</span>\n\n---\n\nOverlay 继承了 [widget](http://aralejs.org/widget/)，可使用其中包括 [base](http://aralejs.org/base/)、[class](http://aralejs.org/class/)、[events](http://aralejs.org/events/)、[attribute](http://aralejs.org/base/docs/attribute.html)、[aspect](http://aralejs.org/base/docs/aspect.html) 的属性和方法。\n\n## 配置说明\n\n### element `element`\n\n页面 dom 节点，只读。\n\n### template `string`\n\n浮层容器的模板，如`<div class=\"myoverlay\"></div>`，只读。和 `element` 属性二者择一即可。\n\n### zIndex `string|number`\n\n浮层的 z-index 属性。\n\n### width `string|number`\n\n浮层宽度(px)。\n\n### height `string|number`\n\n浮层高度(px)。\n\n### id `string`\n\n浮层的初始化 id 。\n\n### className `string`\n\n浮层的初始化 className 。\n\n### style `object`\n\n浮层的初始化 style 对象。\n\n### parentNode `element`\n\n浮层的父元素，默认为document.body，只读。\n\n### align `object`\n\n定位对象，形似下面代码。这块的定位原理可参照 [arale/position](http://aralejs.org/position/) 组件的 *pin* 方法。\n\n```js\n{\n    selfXY: [0, 0],     // element 的定位点，默认为左上角\n    baseElement: Position.VIEWPORT,     // 基准定位元素，默认为当前可视区域\n    baseXY: [0, 0]      // 基准定位元素的定位点，默认为左上角\n}\n```\n\n## 方法说明\n\n### render()\n\n生成浮层的dom结构和样式并插入文档流。\n\n### show()\n\n显示浮层，第一次调用时会进行render()操作。\n\n### hide()\n\n隐藏浮层。\n\n### get(key)\n\n获得属性值。\n\n### set(key, value)\n\n非只读属性都可以通过set方法修改，并会立刻反映到浮层上。API 里的所有属性都可以修改。\n\n\n## 最佳实践\n\n**注意** 务必将浮层元素在 CSS 上设置 ``position: absolute or fixed``, 并且设置有效的 left/top 值.\n以避免当没有设置 left/top 时, 在浮层元素插入到页面底部后, 瞬间出现浏览器滚动条后, 获取可视区域宽高错误, 以致定位有几像素偏差的问题.\n\n\n1. 直接使用：\n\n    ```js\n    var overlay = new Overlay({\n        template: '<div class=\"overlay\"></div>',\n        width: 500,\n        height: 200,\n        zIndex: 99,\n        style: 'border:1px solid red;color:green;',\n        parentNode: '#c',\n        align: {\n            selfXY: ['-100%', 0],\n            baseElement: '#a',\n            baseXY: [0, 0]\n        }\n    });\n    overlay.show();\n    // 修改元素样式\n    overlay.set('style', {\n        backgroundColor: 'red',\n        border: '1px solid green'\n    });\n    // 非只读属性都可以通过 set 方法进行更新\n    overlay.set('width', 500);\n    overlay.set('className', 'myclass');\n    ```\n\n2. 继承使用：\n\n    继承使用时，如果需要覆盖父类的 setup、show、hide 方法，强烈建议这样`Dialog.superclass.show.call(this);`调用一下父类的方法，否则可能造成一些特性的丢失。\n\n    ```js\n    var Overlay = require('overlay');\n    var Dialog = Overlay.extend({\n        attrs: {\n            trigger: null,\n            triggerType: 'click',\n            hasMask: false,\n            onComfirm: function() {},\n            onClose: function() {}\n        },\n        setup: function() {\n            Dialog.superclass.setup.call(this);            \n        },\n        show: function() {\n            Dialog.superclass.show.call(this);\n            // add sth.\n        }\n    });\n    ```\n\n3. Mask 组件的使用：\n\n    ```js\n    var mask = require('mask');\n    mask.show();\n    //mask.hide();\n    ```\n\n    改变默认配置：\n\n    ```js\n    mask.set({ backgroundColor:'red', opacity:0.5 }).show();\n    ```\n\n4. 点击页面空白处浮层消失的功能。\n\n    这个功能常用于提示层和弹出菜单等，要使用这个特性，需要调用 overlay 的私有方法 _blurHide()。\n\n    这个方法接受一个参数（元素数组），表示点击到这些元素上浮层不消失。示例如下:\n\n    ```js\n    setup: function() {\n        Popup.superclass.setup.call(this);\n        this._blurHide([this.get('trigger')]);\n    },\n    ```\n\n\n\n[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aralejs/overlay/trend.png)](https://bitdeli.com/free \"Bitdeli Badge\")\n\n",
+  "tag": "stable",
+  "publisher": "airyland",
+  "md5": "7780dc675114628063867da2f555a07c",
+  "filename": "arale-overlay-1.2.0.tar.gz",
+  "created_at": "2014-07-06T08:44:00+08:00",
+  "updated_at": "2014-09-24T14:58:01+08:00",
+  "dependents": [
+    "arale-dialog@1.4.0",
+    "arale-autocomplete@1.4.0",
+    "arale-dialog@1.4.1"
+  ]
+}

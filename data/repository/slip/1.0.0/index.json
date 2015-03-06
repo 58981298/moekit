@@ -1,0 +1,26 @@
+{
+  "name": "slip",
+  "version": "1.0.0",
+  "homepage": "http://pornel.net/slip/",
+  "authors": [
+    "pornel@pornel.net"
+  ],
+  "description": "A tiny library for interactive swiping and reordering of elements in lists on touch screens",
+  "keywords": [
+    "swipe",
+    "touch",
+    "interactive"
+  ],
+  "spm": {
+    "main": "slip.js"
+  },
+  "dependencies": [],
+  "readme": "# Slip\r\nA tiny library for interactive swiping and reordering of elements in lists on touch screens. No dependencies. BSD Licensed.\r\n\r\n[Try **live demo**](http://pornel.net/slip/) (best on a touchscreen device)\r\n\r\nSupports iOS Safari, Firefox Mobile, Chrome Mobile, Opera Mobile (Presto and Blink).\r\n\r\n![Demo](http://pornel.net/slip/demo.gif)\r\n\r\n## Usage\r\n\r\nYou interact with the library via custom DOM events for swipes/reordering.  Call `new Slip(<element>)` to make element's children swipeable and add event listeners for any of the following events:\r\n\r\n* `slip:swipe`\r\n\r\n    When swipe has been done and user has lifted finger off the screen.\r\n    If you execute `event.preventDefault()` the element will be animated back to original position.\r\n    Otherwise it will be animated off the list and set to `display:none`.\r\n\r\n* `slip:beforeswipe`\r\n\r\n    Fired before first swipe movement starts.\r\n    If you execute `event.preventDefault()` then the element will not move at all.\r\n    Parent element will have class `slip-swiping-container` for duration of the animation.\r\n\r\n* `slip:reorder`\r\n\r\n    Element has been dropped in new location. `event.detail` contains the location:\r\n\r\n    * `insertBefore`: DOM node before which element has been dropped (`null` is the end of the list). Use with `node.insertBefore()`.\r\n    * `spliceIndex`: Index of element before which current element has been dropped, not counting the element iself. For use with `Array.splice()` if the list is reflecting objects in some array.\r\n    * `originalIndex`: The original index of the element.\r\n\r\n* `slip:beforereorder`\r\n\r\n    When reordering movement starts.\r\n    Element being dragged gets `slip-reordering` class.\r\n    If you execute `event.preventDefault()` then the element will not move at all.\r\n\r\n* `slip:beforewait`\r\n\r\n    If you execute `event.preventDefault()` then reordering will begin immediately, blocking ability to scroll the page. You can check `event.target` to limit that behavior to drag handles.\r\n\r\n* `slip:tap`\r\n\r\n    When element was tapped without being swiped/reordered.\r\n\r\n### Example\r\n\r\n```js\r\nvar list = document.querySelector('ul#slippylist');\r\nnew Slip(list);\r\n\r\nlist.addEventListener('slip:beforeswipe', function(e) {\r\n    if (shouldNotSwipe(e.target)) {\r\n        e.preventDefault(); // won't move sideways if prevented\r\n    }\r\n});\r\n\r\nlist.addEventListener('slip:swipe', function(e) {\r\n    // e.target list item swiped\r\n    if (thatWasSwipeToRemove) {\r\n        // list will collapse over that element\r\n        e.target.parentNode.removeChild(e.target);\r\n    } else {\r\n        e.preventDefault(); // will animate back to original position\r\n    }\r\n});\r\n\r\nlist.addEventListener('slip:beforereorder', function(e) {\r\n    if (shouldNotReorder(e.target)) {\r\n        // if prevented element won't move vertically\r\n        e.preventDefault();\r\n    }\r\n});\r\n\r\nlist.addEventListener('slip:beforewait', function(e) {\r\n    if (isScrollingKnob(e.target)) {\r\n        // if prevented element will be dragged (instead of page scrolling)\r\n        e.preventDefault();\r\n    }\r\n});\r\n\r\nlist.addEventListener('slip:reorder', function(e) {\r\n    // e.target list item reordered.\r\n    if (reorderedOK) {\r\n        e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);\r\n    } else {\r\n        // element will fly back to original position\r\n        e.preventDefault();\r\n    }\r\n});\r\n```\r\n\r\n[See live example](http://pornel.net/slip/).\r\n\r\n### CSS\r\n\r\nThe library doesn't *need* any special CSS, but there are some tweaks that can make it nicer.\r\n\r\nIf you don't need text selection you can disable it to make dragging easier:\r\n\r\n```css\r\nli {\r\n    user-select: none;\r\n}\r\n```\r\n\r\nYou probably don't want horizontal scrollbar when elements are swiped off the list (`slip-swiping-container` class is set on container element only when necessary):\r\n\r\n```css\r\n.slip-swiping-container {\r\n    overflow-x: hidden;\r\n}\r\n```\r\n\r\nClass `slip-reordering` is set on list element that is being dragged:\r\n\r\n```css\r\n.slip-reordering {\r\n    box-shadow: 0 2px 10px rgba(0,0,0,0.45);\r\n}\r\n```\r\n\r\n## TODO\r\n\r\n * ARIA roles and screen reader testing.\r\n * Customizable delays and animations.\r\n * Using swipe to reveal UI beneath the element.\r\n",
+  "tag": "stable",
+  "revision": "19101431ae52f62ec540754bfd5a02f3a3263efe",
+  "publisher": "airyland",
+  "md5": "20025204a6f10c882a08d3066e236483",
+  "filename": "slip-1.0.0.tar.gz",
+  "created_at": "2014-05-25T13:22:00+08:00",
+  "updated_at": "2014-05-25T13:22:00+08:00"
+}

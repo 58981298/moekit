@@ -1,0 +1,16 @@
+{
+  "name": "outside-events",
+  "version": "1.0.0",
+  "spm": {
+    "main": "index.js"
+  },
+  "dependencies": [],
+  "readme": "# jQuery outside events #\r\n\r\n---\r\n\r\n[http://benalman.com/projects/jquery-outside-events-plugin/](http://benalman.com/projects/jquery-outside-events-plugin/)\r\n\r\nVersion: 1.1, Last updated: 3/16/2010\r\n\r\nWith jQuery outside events you can bind to an event that will be triggered only when a specific \"originating\" event occurs *outside* the element in question. For example, you can click outside, double-click outside, mouse-over outside, focus outside (and over ten more default \"outside\" events). Also, if an outside event hasn't been provided by default, you can easily define your own.\r\n\r\nPlease note that because a reference to the originating event's element is available as event.target you can change behavior based on which element was actually interacted with.\r\n\r\nVisit the [project page](http://benalman.com/projects/jquery-outside-events-plugin/) for more information and usage examples!\r\n\r\n\r\n## Documentation ##\r\n[http://benalman.com/code/projects/jquery-outside-events/docs/](http://benalman.com/code/projects/jquery-outside-events/docs/)\r\n\r\n\r\n## Examples ##\r\nThese working examples, complete with fully commented code, illustrate a few\r\nways in which this plugin can be used.\r\n\r\n[http://benalman.com/code/projects/jquery-outside-events/examples/clickoutside/](http://benalman.com/code/projects/jquery-outside-events/examples/clickoutside/)  \r\n[http://benalman.com/code/projects/jquery-outside-events/examples/dblclickoutside/](http://benalman.com/code/projects/jquery-outside-events/examples/dblclickoutside/)  \r\n[http://benalman.com/code/projects/jquery-outside-events/examples/mouseoveroutside/](http://benalman.com/code/projects/jquery-outside-events/examples/mouseoveroutside/)  \r\n[http://benalman.com/code/projects/jquery-outside-events/examples/focusoutside/](http://benalman.com/code/projects/jquery-outside-events/examples/focusoutside/)  \r\n\r\n\r\n## Support and Testing ##\r\nInformation about what version or versions of jQuery this plugin has been\r\ntested with, what browsers it has been tested in, and where the unit tests\r\nreside (so you can test it yourself).\r\n\r\n### jQuery Versions ###\r\n1.4.2\r\n\r\n### Browsers Tested ###\r\nInternet Explorer 6-8, Firefox 2-3.6, Safari 3-4, Chrome, Opera 9.6-10.1.\r\n\r\n### Unit Tests ###\r\n[http://benalman.com/code/projects/jquery-outside-events/unit/](http://benalman.com/code/projects/jquery-outside-events/unit/)\r\n\r\n\r\n## Release History ##\r\n\r\n1.1 - (3/16/2010) Made \"clickoutside\" plugin more general, resulting in a whole new plugin with more than a dozen default \"outside\" events and a method that can be used to add new ones.  \r\n1.0 - (2/27/2010) Initial release  \r\n\r\n\r\n## License ##\r\nCopyright (c) 2010 \"Cowboy\" Ben Alman  \r\nDual licensed under the MIT and GPL licenses.  \r\n[http://benalman.com/about/license/](http://benalman.com/about/license/)\r\n",
+  "tag": "stable",
+  "revision": "c19b526cbdf48c059358e44ee18f7625bb1d5cc6",
+  "publisher": "airyland",
+  "md5": "9cd9150283c962d13aa3002166986517",
+  "filename": "outside-events-1.0.0.tar.gz",
+  "created_at": "2014-06-26T11:10:04+08:00",
+  "updated_at": "2014-06-26T11:10:04+08:00"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "seedit-tracker",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "homepage": "",
+  "author": "airyland <airyland@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  },
+  "tag": "stable",
+  "readme": "# seedit-tracker [![spm version](https://moekit.timo.today/badge/seedit-tracker)](https://moekit.timo.today/package/seedit-tracker)\n\n---\n\n\n\n## 使用\n\n该模块用于简化页面百度(谷歌)统计代码的添加。\n\n\n## Usage\n\n```js\nvar Tracker = require('seedit-tracker');\n// 加载一个百度统计\nTracker.baidu.add('86b18e74389b9186f2583902edce4ed9');\n```\n",
+  "dependencies": [],
+  "publisher": "airyland",
+  "md5": "46ff9b3699d8d46c649967106d1026a6",
+  "filename": "seedit-tracker-0.0.1.tar.gz",
+  "created_at": "2014-11-05T17:20:25+08:00",
+  "updated_at": "2014-11-05T17:20:25+08:00"
+}

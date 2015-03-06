@@ -1,0 +1,46 @@
+{
+  "name": "query-string",
+  "version": "1.0.0",
+  "description": "popular querystring api",
+  "homepage": "http://gitlab.alibaba-inc.com/animajs/querystring",
+  "author": "haibin.zhb@alipay.com",
+  "maintainers": [
+    "wanyan.wz@taobao.com",
+    "haibin.zhb@alipay.com"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alibaba-inc.com/animajs/querystring.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [
+    "widget"
+  ],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+      "expect": "0.3.1"
+    },
+    "engines": {
+      "seajs": "2.2.1"
+    }
+  },
+  "dependencies": [],
+  "readme": "\n# QueryString\n\nThis module provides utilities for dealing with query strings.\n\n---\n\n[![Build Status](http://img.shields.io/travis/MoeKit/querystring.svg)](https://travis-ci.org/MoeKit/querystring)\n[![Coverage Status](http://img.shields.io/coveralls/MoeKit/querystring.svg)](https://coveralls.io/r/MoeKit/querystring?branch=master)\n\n\nIt provides the following methods:\n\n\n### QueryString.stringify(obj, sep='&', eq='=', arrayKey=false)\n\nSerialize an object to a query string.\nOptionally override the default separator and assignment characters.\n\nExample:\n\n```javascript\nQueryString.stringify({foo: 'bar'})\n// returns 'foo=bar'\n\nQueryString.stringify({foo: 'bar', baz: 'john', baz: 'bob'}, ';', ':')\n// returns 'foo:bar;baz:john;baz:john'\n\nQueryString.stringify({bar: 'john', bar: 'bob'}, null, null, true)\n// returns 'bar%5B%5D=john&bar%5B%5D=bob'\n```\n\n\n### QueryString.parse(str, sep='&', eq='=')\n\nDeserialize a query string to an object.\nOptionally override the default separator and assignment characters.\n\nExample:\n\n```javascript\nQueryString.parse('a=b&b=c')\n// returns { a: 'b', b: 'c' }\n```\n\n\n### QueryString.escape\n\nThe escape function used by `QueryString.stringify`,\nprovided so that it could be overridden if necessary.\n\n\n### QueryString.unescape\n\nThe unescape function used by `QueryString.parse`,\nprovided so that it could be overridden if necessary.\n\n\n## Copyright\n\nquerystring.js is released under the MIT license.",
+  "tag": "stable",
+  "revision": "eda5c777be254de8dbd0bc09f2fa1c0549ce0083",
+  "publisher": "airyland",
+  "md5": "2b14e44bf87ddc97e04b3722e2303649",
+  "filename": "query-string-1.0.0.tar.gz",
+  "created_at": "2014-06-28T21:35:31+08:00",
+  "updated_at": "2015-02-04T11:22:03+08:00",
+  "dependents": [
+    "iframe-ajax@0.0.7",
+    "i-tracker@0.0.1",
+    "seedit-api@0.0.5"
+  ]
+}

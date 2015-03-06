@@ -1,0 +1,37 @@
+{
+  "name": "hotkeyer",
+  "version": "0.1.0",
+  "description": "**jQuery Hotkeys** is a plug-in that lets you easily add and remove handlers for keyboard events anywhere in your code supporting almost any key combination.",
+  "main": "jquery.hotkeys.js",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-jasmine": "~0.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeresig/jquery.hotkeys"
+  },
+  "license": "MIT or GPL Version 2",
+  "scripts": {
+    "test": "grunt -v"
+  },
+  "spm": {
+    "main": "index.js",
+    "buildArgs": "--ignore jquery",
+    "dependencies": {
+      "jquery": "1.8.3"
+    }
+  },
+  "dependencies": [
+    "jquery@1.8.3"
+  ],
+  "readme": "# jQuery.Hotkeys [![Build Status](https://secure.travis-ci.org/jeresig/jquery.hotkeys.png)](http://travis-ci.org/jeresig/jquery.hotkeys)\r\n\r\n#About\r\n**jQuery Hotkeys** is a plug-in that lets you easily add and remove handlers for keyboard events anywhere in your code supporting almost any key combination.\r\n\r\nThis plugin is based off of the plugin by Tzury Bar Yochay: [jQuery.hotkeys](https://github.com/tzuryby/jquery.hotkeys)\r\n\r\nThe syntax is as follows:\r\n\r\n    $(expression).bind(types, keys, handler);\r\n    $(expression).unbind(types, handler);\r\n    \r\n    $(document).bind('keydown', 'ctrl+a', fn);\r\n    \r\n    // e.g. replace '$' sign with 'EUR'\r\n    $('input.foo').bind('keyup', '$', function(){\r\n      this.value = this.value.replace('$', 'EUR');\r\n    });\r\n    \r\nSyntax when wanting to use jQuery's `on()`/`off` methods:\r\n\r\n    $(expression).on(types, null, keys, handler);\r\n    $(expression).off(types, handler);\r\n    \r\n    $(document).on('keydown', null, 'ctrl+a', fn);\r\n    \r\n    // e.g. replace '$' sign with 'EUR'\r\n    $('input.foo').on('keyup', null, '$', function(){\r\n      this.value = this.value.replace('$', 'EUR');\r\n    });     \r\n\r\n## Example\r\n\r\n[Example](http://htmlpreview.github.com/?https://github.com/jeresig/jquery.hotkeys/master/test-static-05.html)\r\n\r\n## Event Types\r\n\r\nSupported types are `'keydown'`, `'keyup'` and `'keypress'`\r\n\r\n## jQuery Compatibility\r\n\r\nWorks with jQuery 1.4.2 and newer.\r\n\r\nIt is known to be working with all the major browsers on all available platforms (Win/Mac/Linux)\r\n\r\n * IE 6/7/8+\r\n * FF 1.5/2/3+\r\n * Opera-9+\r\n * Safari-3+\r\n * Chrome-0.2+\r\n\r\n## Notes\r\n\r\nModifiers are not case sensitive (`Ctrl` == `ctrl` == `cTRL`)\r\n\r\nIf you want to use more than one modifier (e.g. `alt+ctrl+z`) you should define them by an alphabetical order e.g. alt+ctrl+shift\r\n\r\nHotkeys aren't tracked if you're inside of an input element (unless you explicitly bind the hotkey directly to the input). This helps to avoid conflict with normal user typing.\r\n\r\nYou can use namespacing by adding a suffix to the event type (e.g. `keyup.toggle`)\r\n\r\n\r\n### Meta and Hyper Keys\r\nMeta and hyper keys don't register on `keyup` in any browser tested.\r\n\r\n#### Chrome 33.0.1750.117\r\nMeta key registers on `keydown` event.\r\nHyper key registers on `keydown` event.\r\n\r\n#### Firefox 27.0.1 and Safari 7.0.1\r\nMeta key registers on `keydown` and `keypress` events.\r\nHyper key registers on `keydown` and `keypress` events.\r\n\r\n#### Opera 19.0\r\nMeta key doesn't register at all :(\r\nHyper key registers on `keydown` and `keypress` events.\r\n\r\n#### TL;DR\r\nBind to `keydown` event for meta and hyper keys, but meta key does not work in Opera ;)\r\n\r\n### Addendum\r\n\r\nFirefox is the most liberal one in the manner of letting you capture all short-cuts even those that are built-in in the browser such as `Ctrl-t` for new tab, or `Ctrl-a` for selecting all text. You can always bubble them up to the browser by returning `true` in your handler.\r\n\r\nOthers, (IE) either let you handle built-in short-cuts, but will add their functionality after your code has executed. Or (Opera/Safari) will *not* pass those events to the DOM at all.\r\n\r\n*So, if you bind `Ctrl-Q` or `Alt-F4` and your Safari/Opera window is closed don't be surprised.*\r\n",
+  "tag": "stable",
+  "revision": "4dbba5c13baec9ef44ec459271ccb6a0ffe91b21",
+  "publisher": "airyland",
+  "md5": "f3fa3d0ef82e532c86108d0de671a2e5",
+  "filename": "hotkeyer-0.1.0.tar.gz",
+  "created_at": "2014-06-11T21:50:16+08:00",
+  "updated_at": "2014-06-11T21:50:16+08:00"
+}

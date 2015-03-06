@@ -1,0 +1,47 @@
+{
+  "name": "seedit-api",
+  "version": "0.0.5",
+  "description": "Seedit API JavaScript SDK",
+  "homepage": "https://github.com/airyland/seedit",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/airyland/seedit.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "alias": {},
+    "devAlias": {},
+    "engines": {},
+    "dependencies": {
+      "jquery": "1.8.3",
+      "json": "0.0.2",
+      "seedit-config": "0.1.1",
+      "query-string": "1.0.0",
+      "iframe-ajax": "0.0.6"
+    },
+    "devDependencies": {
+      "seajs": "2.2.1",
+      "expect": "0.3.1"
+    }
+  },
+  "tag": "stable",
+  "readme": "# API文档\r\n\r\n---\r\n[![private package](http://moekit.com/privateBadge/bozhong)](http://moekit.com/package/seedit-config)\r\n[![Build Status](https://travis-ci.org/MoeKit/seedit-api.svg)](https://travis-ci.org/MoeKit/seedit-api)\r\n[![Coverage Status](http://img.shields.io/coveralls/MoeKit/seedit-api/0.0.5.svg)](https://coveralls.io/r/MoeKit/seedit-api)\r\n\r\n\r\n\r\n站内`API` JavaScritp SDK 文档\r\n\r\n对于`POST`跨域的问题，使用`iframeAjax`进行了处理封装。\r\n\r\n该模块依赖于`seedit-config`屏蔽了不同环境下的url差异。\r\n\r\n---\r\n\r\n## 模块中使用\r\n\r\n```javascript\r\nvar API = require('index');\r\n```\r\n\r\n## 实现说明\r\n\r\n`GET`请求统一为`jsonp`请求\r\n\r\n`POST`请求将提交到`iframe`处理\r\n\r\n## API 方法说明\r\n\r\n`API`主要只有`4`个请求方法。默认请求的是`common`API。要请求其他域的请看后面说明。\r\n\r\n\r\n### API.verb(API,[data],successCallback,errorCallback)\r\n\r\n\r\nverb为`REST`基本的四个方法:\r\n\r\n+ `get`\r\n+ `post`\r\n+ `del` (delete为JavaScript`关键字`，`ie`下报错，不能使用)\r\n+ `put`\r\n\r\n\r\n参数说明\r\n\r\n+ **API** string API名字，参照`CMS`后台文档。如 `bbs/common_member`。也可以为完全的API路径。\r\n+ **data** object API参数，`可选`\r\n+ **successCallback** function 请求成功时的回调,\r\n\r\n    参数为API返回数据 `Object`:\r\n\r\n    ```json\r\n    {error_code:0,data:{}}\r\n    ```\r\n\r\n+ **errorCallback** function 请求失败的回调,\r\n\r\n    参数为API返回数据 `Object`:\r\n\r\n    ```json\r\n    {error_code:1006,error_message:'出错啦'}\r\n    ```\r\n    \r\n---\r\n\r\n### 事件\r\n\r\n请求的回调还可以写成事件的形式：\r\n\r\n+ `success` 成功\r\n+ `error` 失败\r\n\r\n原来代码：\r\n\r\n```javascript\r\nAPI.verb(API,[data],successCallback,errorCallback)\r\n```\r\n\r\n可以写成\r\n\r\n```javascript\r\nAPI.verb(API,[data]).on('success',successCallback).on('error',errorCallback);\r\n```\r\n\r\n----\r\n\r\n注意：`交互考虑，必须必须有errorCallback回调`\r\n\r\n## API.scope\r\n\r\n该函数返回上面四个方法，用于定义API scope,即API域 。\r\n\r\n后面再调用get等方法时，基地址将由scope决定。\r\n\r\nscope可取值有：\r\n\r\n+ `common`  common API\r\n\r\n+ `huodong`  活动 API\r\n\r\n+ `bbs` bbs API\r\n\r\n  对于`http://bbs.office.bzdev.net/restful/newyear/post.json`这样的接口，可以用 \r\n\r\n  ```javascript\r\n  var bbsAPI = APICore.scope('bbs');\r\n  bbsAPI.get('newyear/post').on('success',function(data){\r\n  //\r\n  });\r\n  ```\r\n\r\n+ `./path`  相对当前网站路径，\r\n\r\n    当前url为`http://account.seedit.com/`时，使用 `API.scope('./restful')`,那么所有API的基地址是 `http://account.seedit.com/restful`\r\n\r\n+ `绝对地址`  不建议使用，仅用于调试\r\n```javascript\r\nvar huodongAPI = API.scope('huodong');\r\n// 请求试纸数据\r\nhuodongAPI.get('shizhi/list',function(data){\r\n    // 请求成功啦\r\n});\r\n```\r\n\r\n\r\n## 举例\r\n\r\n带参数请求：\r\n```javascript\r\nAPI.post('bbs/post',datas,function(data){\r\n    console.log('success');\r\n},function(data){\r\n    console.log('oops!'+data.error_message);\r\n})\r\n```\r\n\r\n无参数时：\r\n```javascript\r\nAPI.get('bbs/common_member',function(data){\r\n    console.log('success');\r\n},function(data){\r\n    console.log('oops!'+data.error_message);\r\n});\r\n```\r\n\r\n",
+  "dependencies": [
+    "jquery@1.8.3",
+    "json@0.0.2",
+    "seedit-config@0.1.1",
+    "query-string@1.0.0",
+    "iframe-ajax@0.0.6"
+  ],
+  "publisher": "airyland",
+  "md5": "d4fa887e8fad02652d3f9b9084d90ef2",
+  "filename": "seedit-api-0.0.5.tar.gz",
+  "created_at": "2015-02-04T11:22:03+08:00",
+  "updated_at": "2015-02-04T11:22:03+08:00"
+}

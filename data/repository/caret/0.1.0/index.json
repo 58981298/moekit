@@ -1,0 +1,40 @@
+{
+  "name": "caret",
+  "version": "0.1.0",
+  "description": "Get caret position and offset from inputor",
+  "main": "index.js",
+  "dependencies": [],
+  "devDependencies": {
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-coffee": "~0.6.4",
+    "grunt-contrib-jasmine": "~0.5.1",
+    "grunt-json-replace": "~0.1.2"
+  },
+  "scripts": {
+    "test": "grunt test --verbose"
+  },
+  "repository": "",
+  "keywords": [
+    "jquery",
+    "caret",
+    "offset",
+    "position"
+  ],
+  "author": "Harold.luo <chord.luo@gmail.com>",
+  "license": "MIT",
+  "spm": {
+    "main": "./src/jquery.caret.js",
+    "buildArgs": "--ignore jquery"
+  },
+  "readme": "Caret.js\r\n========\r\n\r\nGet caret postion or offset from inputor\r\n\r\nThis is the core function that working in [At.js](http://ichord.github.com/At.js).  \r\nNow, It just become an simple jquery plugin so that everybody can use it.  \r\nAnd, of course, **At.js** is using this plugin too.\r\n\r\n* support iframe context\r\n\r\nLive Demo\r\n=========\r\n\r\nhttp://ichord.github.com/Caret.js/\r\n\r\n\r\nUsage\r\n=====\r\n\r\n```javascript\r\n\r\n// Get caret position\r\n// not working in `contentEditable` mode\r\n$('#inputor').caret('position'); // => {left: 15, top: 30, height: 20}\r\n$('#inputor').caret('iframe', iframe1).caret('position')\r\n\r\n// Get caret offset\r\n$('#inputor').caret('offset'); // => {left: 300, top: 400, height: 20}\r\n\r\nvar fixPos = 20\r\n// Get position of the 20th char in the inputor.\r\n// not working in `contentEditable` mode\r\n$('#inputor').caret('position', fixPos);\r\n\r\n// Get offset of the 20th char.\r\n// not working in `contentEditable` mode\r\n$('#inputor').caret('offset', fixPos);\r\n\r\n// more\r\n\r\n// Get caret position from first char in inputor.\r\n$('#inputor').caret('pos'); // => 15\r\n\r\n// Set caret position in the inputor\r\n// not working in contentEditable mode\r\n$('#inputor').caret('pos', 15);\r\n\r\n// set iframe context\r\n<!-- $('#inputor').caret({iframe: theIframe}); -->\r\n$('#inputor').caret('offset', {iframe: theIframe});\r\n$('#inputor').caret('pos', 15, {iframe: theIframe});\r\n\r\n```\r\n",
+  "tag": "stable",
+  "revision": "bd879bc76158e94ace5e36aac360d748f5bdbaf5",
+  "publisher": "airyland",
+  "md5": "4b0a3e34872aebd4a044b2bfcd07704f",
+  "filename": "caret-0.1.0.tar.gz",
+  "created_at": "2014-08-30T01:42:28+08:00",
+  "updated_at": "2014-08-30T01:50:55+08:00",
+  "dependents": [
+    "atwho@0.5.0"
+  ]
+}

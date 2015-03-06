@@ -1,0 +1,47 @@
+{
+  "name": "rater",
+  "version": "1.1.3",
+  "description": "星星评分实现",
+  "homepage": "https://github.com/airyland/rater",
+  "author": "airyland",
+  "maintainers": [
+    "李政 <i@mao.li>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/airyland/rater.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "output": [
+      "./src/rater.css",
+      "./src/moekit-rater.png"
+    ],
+    "alias": {},
+    "devAlias": {},
+    "devDependencies": {
+      "seajs": "2.2.1"
+    },
+    "dependencies": {
+      "jquery": "1.8.3",
+      "eventor": "0.0.3"
+    }
+  },
+  "dependencies": [
+    "jquery@1.8.3",
+    "eventor@0.0.3"
+  ],
+  "readme": "# rater\r\n\r\n---\r\n [![moekit version](http://moekit.com/badge/rater)](http://moekit.com/package/rater)\r\n [![Build Status](https://img.shields.io/travis/airyland/rater.svg)](https://travis-ci.org/airyland/rater)\r\n [![Coverage Status](https://img.shields.io/coveralls/airyland/rater.svg)](https://coveralls.io/r/airyland/rater)\r\n\r\n\r\n---\r\n\r\n\r\n## 使用说明\r\n\r\n完善中。请先看演示。\r\n\r\n## 配置\r\n\r\n### target <em>String</em>\r\n评分容器选择器\r\n\r\n### enabled <em>Boolean</em>\r\n是否鼠标经过有响应，默认为`true`\r\n\r\n\r\n### min <em>Number</em>\r\n最小值\r\n\r\n### max <em>Number</em>\r\n最多显示的星星数\r\n\r\n### value <em>Number</em>\r\n默认显示的星数\r\n\r\n### on('select' <em>function(number,target)</em>)\r\n选择星星时的回调,`this`指向`target`，参数为当前选择到的值\r\n\r\n### on('hover' <em>function(hoverNumber,target)</em>)\r\n经过星星时的回调,`this`指向`target`，参数为当前经过的星星值(星星值由左到右从1开始)\r\n\r\n### on('leave' <em>function(number,hoverNumber,target)</em>)\r\n离开整个评分区域的回调,`this`指向`target`，参数1为当前选择的星星值，参数2为当前经过到的值\r\n",
+  "tag": "stable",
+  "revision": "37e57a7b273329bf9781f7175fdfe394036c6670",
+  "publisher": "airyland",
+  "md5": "9da6445691c9a5762a1c515d25bb97ce",
+  "filename": "rater-1.1.3.tar.gz",
+  "created_at": "2014-07-18T18:47:08+08:00",
+  "updated_at": "2014-09-20T14:43:02+08:00"
+}

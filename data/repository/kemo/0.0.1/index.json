@@ -1,0 +1,21 @@
+{
+  "name": "kemo",
+  "version": "0.0.1",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "jquery": "1.8.3"
+    }
+  },
+  "dependencies": [
+    "jquery@1.8.3"
+  ],
+  "readme": "#About\r\n**jQuery Hotkeys** is a plug-in that lets you easily add and remove handlers for keyboard events anywhere in your code supporting almost any key combination.\r\n\r\nThis plugin is based off of the plugin by Tzury Bar Yochay: [jQuery.hotkeys](http://github.com/tzuryby/hotkeys)\r\n\r\n--- \r\n\r\nThe syntax is as follows:\r\n\r\n    $(expression).bind(types.keys, handler);\r\n    $(expression).unbind(types.keys, handler);\r\n\r\n    $(document).bind('keydown.ctrl_a', fn);\r\n\r\n    // e.g. replace '$' sign with 'EUR'\r\n    $('input.foo').bind('keyup.$', function(){\r\n      this.value = this.value.replace('$', 'EUR');\r\n    });\r\n\r\n## Types\r\nSupported types are `'keydown'`, `'keyup'` and `'keypress'`\r\n\r\n## Notes\r\n\r\nIf you want to use more than one modifiers (e.g. ctrl+alt+z) you should define them by an alphabetical order e.g. `alt_ctrl_z`\r\n\r\nHotkeys aren't tracked if you're inside of an input element (unless you explicitly bind the hotkey directly to the input). This helps to avoid conflict with normal user typing.\r\n\r\nAll keys that have special meaning in RegExp strings (`\\.+*?^$[](){}/'#`) can't\r\nbe removed by using the namespaced event until this jQuery bug get's fixed:\r\nhttp://bugs.jquery.com/ticket/11458 the colon (`.`) will never work (even if bug\r\nis fixed) since it is used to separate multiple namespaces. To remove them you\r\nwill need to remove events to the whole event type:\r\n\r\n    // won't work\r\n    $('#foo').unbind('keyup.$');\r\n    $('#foo').unbind('keyup.+');\r\n\r\n    //will work\r\n    $('#foo').unbind('keyup');\r\n    $('#foo').unbind('keyup.a');\r\n    $('#foo').unbind('keyup.ctrl_s');\r\n\r\n\r\n## jQuery Compatibility\r\n\r\nWorks with jQuery 1.4.2 and newer.\r\n\r\nIt known to be working with all the major browsers on all available platforms (Win/Mac/Linux)\r\n\r\n * IE 6/7/8\r\n * FF 1.5/2/3\r\n * Opera-9\r\n * Safari-3\r\n * Chrome-0.2\r\n\r\n### Addendum\r\n\r\nFirefox is the most liberal one in the manner of letting you capture all short-cuts even those that are built-in in the browser such as `Ctrl_t` for new tab, or `Ctrl_a` for selecting all text. You can always bubble them up to the browser by returning `true` in your handler.\r\n\r\nOthers, (IE) either let you handle built-in short-cuts, but will add their functionality after your code has executed. Or (Opera/Safari) will *not* pass those events to the DOM at all.\r\n\r\n*So, if you bind `Ctrl_Q` or `Alt_F4` and your Safari/Opera window is closed don't be surprised.*\r\n",
+  "tag": "stable",
+  "revision": "6775c569f92df47fb2b7d20744ffacd494bda314",
+  "publisher": "airyland",
+  "md5": "4ff3681389b7858d6195c64ed01dbcb0",
+  "filename": "kemo-0.0.1.tar.gz",
+  "created_at": "2014-06-24T15:52:40+08:00",
+  "updated_at": "2014-06-24T15:52:40+08:00"
+}

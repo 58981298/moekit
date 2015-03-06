@@ -1,0 +1,55 @@
+{
+  "name": "arale-tip",
+  "version": "1.3.0",
+  "keywords": [
+    "widget",
+    "bubble",
+    "popup"
+  ],
+  "description": "提示框组件，专注于带箭头的气泡框显示、隐藏、动画等交互功能。",
+  "homepage": "http://aralejs.org/tip",
+  "author": "偏右 <afc163@gmail.com>",
+  "maintainers": [
+    "偏右 <afc163@gmail.com>",
+    "乔花 <shengyan1985@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/tip"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/tip/issues"
+  },
+  "license": "MIT",
+  "spm": {
+    "main": "tip.js",
+    "dependencies": {
+      "jquery": "1.8.3",
+      "arale-popup": "1.2.0",
+      "alice-poptip": "1.3.0",
+      "import-style": "1.0.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    },
+    "engines": {
+      "seajs": "2.2.1",
+      "seajs-text": "1.1.0"
+    },
+    "buildArgs": "--ignore jquery --styleBox"
+  },
+  "dependencies": [
+    "jquery@1.8.3",
+    "arale-popup@1.2.0",
+    "alice-poptip@1.3.0",
+    "import-style@1.0.0"
+  ],
+  "readme": "# Tip 基础提示框\r\n\r\n---\r\n\r\n[![spm package](http://spmjs.io/badge/arale-tip)](http://spmjs.io/package/arale-tip)\r\n[![Build Status](https://secure.travis-ci.org/aralejs/tip.png)](https://travis-ci.org/aralejs/tip)\r\n[![Coverage Status](https://coveralls.io/repos/aralejs/tip/badge.png?branch=master)](https://coveralls.io/r/aralejs/tip)\r\n\r\n提示框组件，专注于带箭头的气泡框显示、隐藏、动画等交互功能。\r\n模块内部集成了模板和样式，无须单独引用样式，可以很方便地直接使用。\r\n\r\n> 注：1.2.0 版本后 Tip 模块被原来的子模块 Atip 模块所替换。\r\n\r\n---\r\n\r\nTip 模块继承自 [popup](http://aralejs.org/popup/)，可使用包括 [overlay](http://aralejs.org/overlay/)、[widget](http://aralejs.org/widget/)、[base](http://aralejs.org/base/)、[class](http://aralejs.org/class/)、[events](http://aralejs.org/events/)、[attribute](http://aralejs.org/base/docs/attribute.html)、[aspect](http://aralejs.org/base/docs/aspect.html) 的属性和方法。\r\n\r\n## 配置说明\r\n\r\n### trigger `selector`\r\n\r\n触发点元素。\r\n\r\n### triggerType `string`\r\n\r\n触发方式，[`hover`|`click`|`focus`]。\r\n\r\n### content `string`\r\n\r\n提示内容，支持字符和 html 结构。\r\n\r\n### arrowPosition `number`\r\n\r\n箭头位置，按钟表点位置，目前支持1、2、5、7、10、11点位置，默认 7 点钟。\r\n\r\n![图示](https://i.alipayobjects.com/e/201307/jBty06lQT.png)\r\n\r\n### theme `string`\r\n\r\n配色主题，内置黄色、蓝色和白色三种提示框样式 [`yellow`|`blue`|`white`]，默认为 `yellow`。\r\n\r\n### inViewport `boolean`\r\n\r\n当弹出层显示在屏幕外时，是否自动转换浮层位置，默认为 false。\r\n\r\n### align `object`\r\n\r\n参照 Overlay 的 [align](http://aralejs.org/overlay/#align-object) 配置，\r\n指定此定位参数时，认为开发者要自定义提示框位置，此时 `arrowPosition` 属性失效。\r\n\r\n---\r\n\r\n## 最佳实践\r\n\r\n```js\r\nseajs.use(['arale/tip/{{版本号}}/tip'], function(Tip) {\r\n    new Tip({\r\n        trigger: '#test',       // 触发器\r\n        content: '我是内容',    // 提示框显示的内容\r\n        arrowPosition: 11       // 11点钟的箭头位置\r\n    });\r\n});\r\n```\r\n\r\n其他用法请参见[演示](http://aralejs.org/tip/examples/)。\r\n",
+  "tag": "stable",
+  "revision": "e4a7f835f4492a753ce85b0e4f9a95345204a853",
+  "publisher": "airyland",
+  "md5": "bec3b2c35c30dad23d43a82a301a7edc",
+  "filename": "arale-tip-1.3.0.tar.gz",
+  "created_at": "2014-05-20T16:11:17+08:00",
+  "updated_at": "2014-09-20T16:14:29+08:00"
+}

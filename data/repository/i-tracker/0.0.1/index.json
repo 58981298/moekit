@@ -1,0 +1,57 @@
+{
+  "name": "i-tracker",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "homepage": "",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lizheng/iTracker.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "output": [
+      "lib/uuid.js"
+    ],
+    "dependencies": {
+      "cookie-store": "0.0.9",
+      "local-store": "1.3.16",
+      "visit-from": "0.0.1",
+      "cookies": "1.1.0",
+      "seedit-bbs": "1.0.3",
+      "query-string": "1.0.0",
+      "name-store": "1.1.0",
+      "cookie": "1.1.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    },
+    "engines": {
+      "seajs": "2.2.1"
+    },
+    "tests": "tests/*.js",
+    "buildArgs": "--include all"
+  },
+  "tag": "stable",
+  "readme": "# i-tracker\r\n\r\n---\r\n\r\n[![spm version](http://spmjs.io/badge/i-tracker)](http://spmjs.io/package/i-tracker)\r\n\r\nAn awesome spm package!\r\n\r\n---\r\n\r\n## Install\r\n\r\n```\r\n$ spm install i-tracker --save\r\n```\r\n\r\n## Usage\r\n\r\n```js\r\nvar iTracker = require('i-tracker');\r\n// use iTracker\r\n```\r\n\r\n## Api\r\n\r\nHere is more details.\r\n\r\n",
+  "dependencies": [
+    "cookie-store@0.0.9",
+    "local-store@1.3.16",
+    "visit-from@0.0.1",
+    "cookies@1.1.0",
+    "seedit-bbs@1.0.3",
+    "query-string@1.0.0",
+    "name-store@1.1.0",
+    "cookie@1.1.0"
+  ],
+  "publisher": "airyland",
+  "md5": "13c65fedae9c5d018bfee96e5f5d01b6",
+  "filename": "i-tracker-0.0.1.tar.gz",
+  "created_at": "2014-11-15T19:44:39+08:00",
+  "updated_at": "2014-12-18T14:26:58+08:00"
+}

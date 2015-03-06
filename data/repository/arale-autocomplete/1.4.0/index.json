@@ -1,0 +1,59 @@
+{
+  "name": "arale-autocomplete",
+  "version": "1.4.0",
+  "description": "自动补全组件",
+  "keywords": [
+    "widget"
+  ],
+  "homepage": "http://aralejs.org/autocomplete/",
+  "author": "popomore <sakura9515@gmail.com>",
+  "maintainers": [
+    "贯高 <sakura9515@gmail.com>",
+    "乔花 <shengyan1985@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/autocomplete.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/autocomplete/issues"
+  },
+  "license": "MIT",
+  "spm": {
+    "main": "autocomplete.js",
+    "dependencies": {
+      "jquery": "1.7.2",
+      "arale-templatable": "0.10.0",
+      "arale-base": "1.2.0",
+      "arale-overlay": "1.2.0",
+      "handlebars-runtime": "1.3.0"
+    },
+    "devDependencies": {
+      "alice-select": "1.1.0",
+      "expect.js": "0.3.1",
+      "sinon": "1.6.0"
+    },
+    "engines": {
+      "seajs": "2.2.1",
+      "seajs-text": "1.1.0"
+    },
+    "buildArgs": "--ignore jquery"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": [
+    "jquery@1.7.2",
+    "arale-templatable@0.10.0",
+    "arale-base@1.2.0",
+    "arale-overlay@1.2.0",
+    "handlebars-runtime@1.3.0"
+  ],
+  "readme": "# AutoComplete \r\n\r\n- order: 1\r\n\r\n---\r\n\r\n[![spm package](http://spmjs.io/badge/arale-autocomplete)](http://spmjs.io/package/arale-autocomplete)\r\n[![Build Status](https://secure.travis-ci.org/aralejs/autocomplete.png?branch=master)](https://travis-ci.org/aralejs/autocomplete)\r\n[![Coverage Status](https://coveralls.io/repos/aralejs/autocomplete/badge.png?branch=master)](https://coveralls.io/r/aralejs/autocomplete)\r\n\r\n自动补全组件。\r\n\r\n---\r\n\r\nAutoComplete 继承自 [overlay](http://aralejs.org/overlay/)，可使用其中包括 [widget](http://aralejs.org/widget/)、[base](http://aralejs.org/base/)、[class](http://aralejs.org/class/)、[events](http://aralejs.org/events/)、[attribute](http://aralejs.org/base/docs/attribute.html)、[aspect](http://aralejs.org/base/docs/aspect.html) 的属性和方法。\r\n\r\n## 使用说明\r\n\r\n初始化 autocomplete\r\n\r\n```javascript\r\nac = new AutoComplete({\r\n    trigger: '#test',\r\n    dataSource: ['abc', 'abd', 'cbd']\r\n}).render();\r\n```\r\n\r\n再稍微复杂一点可以通过数据控制显示，dataSource 可以是一个数据集，格式为\r\n\r\n```\r\ndataSource: [\r\n  {value: 'shanghai', label: '上海', alias: ['sh']},\r\n  {value: 'beijing', label: '北京', alias: ['bj']}\r\n]\r\n```\r\n\r\n组件通过 value 和 alias 进行过滤，而最后显示的是 label 的数据，选中后输入框的也是 label 数据。这三个字段为保留字段，其他字段可以自己定义，还可以定义模板去修改显示，[查看演示](http://aralejs.org/autocomplete/examples/template.html#使用参数来自定义模板)。\r\n\r\n在看 API 之前查看[更多演示](http://aralejs.org/autocomplete/examples/)\r\n\r\n## API\r\n\r\n### Attribute\r\n\r\n#### trigger *selector*\r\n\r\n指定输入框\r\n\r\n#### template *string*\r\n\r\n默认模板请[查看源码](https://github.com/aralejs/autocomplete/blob/master/src/autocomplete.handlebars)\r\n\r\n**注意覆盖的时候不要缺少 `data-role`**，查看[如何自定义 template 的演示](http://aralejs.org/autocomplete/examples/template.html)，简单的场景可以使用下面几项。\r\n\r\n### header *string*\r\n\r\n自定义模板头部，默认为空。\r\n\r\n### html *string*\r\n\r\n自定义每项，默认是 {{label}}。\r\n\r\n### footer *string*\r\n\r\n自定义模板尾部，默认为空。\r\n\r\n#### classPrefix *string*\r\n\r\n样式前缀，默认为 `ui-select`\r\n\r\n#### dataSource *array | object | string | function*\r\n\r\n最终提供给 filter 的数据是一个数组，数组内的每项为一个对象，value、label 和 alias 为保留字段。\r\n\r\n```\r\n[\r\n  {value: '', label: '', alias: []},\r\n  ...\r\n]\r\n```\r\n\r\n如果传入的为字符串 ['a']，会自动转化成 [{value: 'a', label: 'a'}]。\r\n\r\n数据源支持4种形式\r\n\r\n1.  Array\r\n\r\n    直接提供一个数组，无需转换\r\n   \r\n    ```\r\n    ['10010', '10086', '10000']\r\n    ```\r\n\r\n\r\n2.  Object\r\n\r\n    提供一个对象，里面要包含数组，可以通过 `locator: 'data'` 指定这个数组\r\n    \r\n    ```\r\n    {\r\n        data: ['10010', '10086', '10000']\r\n    }\r\n    ```\r\n\r\n\r\n3.  URL\r\n\r\n    提供一个 URL，通过 ajax 返回数据，返回的数据也可以通过 `locator` 查找。\r\n    \r\n    URL 提供模版参数 `./test.json?v={{query}}&t={{timestamp}}`，query 是输入的值，timestamp 为时间戳。\r\n\r\n    如果 URL 为 http 或 https 开头，会用 jsonp 发送请求，否则为 ajax。\r\n\r\n4.  Function\r\n\r\n    提供一个自定义函数，根据自己的业务逻辑返回数组，这个自定义程度很高，可实现上面 3 种方式。\r\n    \r\n    可以每次输入都动态生成数据，如邮箱自动补完\r\n    \r\n    ```\r\n    dataSource: function(query) {\r\n      return [\r\n        query + '@gmail.com',\r\n        query + '@qq.com',\r\n        query + '@163.com'\r\n      ];\r\n    }\r\n    ```\r\n    \r\n    也可以自己发送请求获取数据，`return false` 阻止同步返回，使用 `done` 异步返回数据。\r\n    \r\n    ```\r\n    dataSource: function(query, done) {\r\n        var that = this;\r\n        $.ajax('test.json?v=' + query, {\r\n            dataType: 'jsonp'\r\n        }).success(function(data) {\r\n            done(data);\r\n        })\r\n        return false;\r\n    }\r\n    ```\r\n\r\n#### locator *object | function*\r\n\r\n这个参数与 dataSource 相关，一般情况 dataSource 为一个数组，filter 可以直接处理。但如果返回的是 Object，那么就需要指定那个数组。\r\n\r\n这个参数可定位到需要的值，支持两种方式\r\n\r\n1.  字符串，默认为 `data`。**如果为空字符串则返回原来的值**。\r\n\r\n    ```\r\n    {\r\n        data: ['10010', '10086', '10000']\r\n    }\r\n    ```\r\n    \r\n    指定 `locator: 'data'`，最终给 filter 的为 `['10010', '10086', '10000']`\r\n    \r\n    还支持多层定位，如下可用 `locator: 'a.b'`\r\n    \r\n    ```\r\n    {a : {b: [1, 2]}}\r\n    ```\r\n\r\n2.  自定义函数\r\n\r\n    ```\r\n    locator : function(data) {\r\n        // find data and return\r\n    }\r\n    ```\r\n\r\n#### filter *function*\r\n\r\n过滤器用于筛选 dataSource，最后输出给模板进行渲染，默认方法为 `startsWith`。\r\n\r\n使用方式可查看[过滤器章节](http://aralejs.org/autocomplete/docs/filter.html)。\r\n\r\n#### submitOnEnter *boolean*\r\n\r\n回车时是否提交表单，默认为 true，会提交表单，组件不做任何处理。\r\n\r\n#### disabled *boolean*\r\n\r\n是否禁用，默认为 `false`\r\n\r\n#### selectFirst *boolean*\r\n\r\n默认选中第一项\r\n\r\n#### delay *number*\r\n\r\n按键频率，每次按键的间隔，在这个时间范围内不会处理过滤流程。\r\n\r\n### 方法\r\n\r\n#### selectItem\r\n\r\n选中某项\r\n\r\n```\r\n.selectItem(0)\r\n```\r\n\r\n选中第一项，如果没有参数，选中当前 selectedIndex 那项。\r\n\r\n#### setInputValue\r\n\r\n通过 api 模拟输入框输入，输入 a\r\n\r\n```\r\n.setInputValue('a')\r\n```\r\n\r\n### Properties\r\n\r\n#### input\r\n\r\n输入框的实例，`this.input`，查看[文档](http://aralejs.org/autocomplete/docs/input.html)\r\n\r\n#### dataSource\r\n\r\n数据源的实例，`this.dataSource`，查看[文档](http://aralejs.org/autocomplete/docs/data-source.html)\r\n\r\n#### items\r\n\r\n下拉框的选项，`this.items`，等同于 `this.$('[data-role=items]').children()`。\r\n\r\n### 事件\r\n\r\n#### itemSelected\r\n\r\n当选中某项时触发\r\n \r\n - data：选中项对应的数据源对象\r\n - item：选中项对应的 DOM\r\n\r\n```\r\n.on('itemSelected', function(data, item){\r\n    console.log(data.label);\r\n});\r\n```\r\n\r\n#### indexChanged\r\n\r\n当选项切换时触发，可能是鼠标或键盘。\r\n\r\n -  currentIndex: 切换后的索引值\r\n\r\n -  previousIndex: 切换前的索引值\r\n\r\n```\r\n.on('indexChanged', function(current, prev){\r\n    console.log(this.items[current])\r\n});\r\n```\r\n\r\n\r\n[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aralejs/autocomplete/trend.png)](https://bitdeli.com/free \"Bitdeli Badge\")\r\n\r\n",
+  "tag": "stable",
+  "publisher": "yyydao",
+  "md5": "f5ed7834d60704d699abc7dfbf2147e2",
+  "filename": "arale-autocomplete-1.4.0.tar.gz",
+  "created_at": "2014-09-01T11:30:13+08:00",
+  "updated_at": "2014-09-01T11:30:13+08:00"
+}

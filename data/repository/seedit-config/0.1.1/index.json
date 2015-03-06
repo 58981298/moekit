@@ -1,0 +1,46 @@
+{
+  "name": "seedit-config",
+  "version": "0.1.1",
+  "description": "站内url配置模块",
+  "keywords": [],
+  "homepage": "https://github.com/MoeKit/seedit-config",
+  "author": "airyland",
+  "maintainers": [
+    "airyland"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MoeKit/seedit-config.git"
+  },
+  "bugs": {
+    "url": "git://github.com/MoeKit/seedit-config.git/issues"
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    },
+    "engines": {
+      "seajs": "2.2.1"
+    },
+    "tests": "tests/*.js"
+  },
+  "dependencies": [],
+  "readme": "# seedit-config\r\n\r\n---\r\n\r\n[![spm version](http://moekit.com/badge/seedit-config)](http://moekit.com/package/seedit-config)\r\n[![private package](http://moekit.com/privateBadge/bozhong)](http://moekit.com/package/seedit-config)\r\n[![Travic CI Status](https://travis-ci.org/MoeKit/seedit-config.svg)](https://travis-ci.org/MoeKit/seedit-config)\r\n[![Coverage Status](http://img.shields.io/coveralls/MoeKit/seedit-config.svg)](https://coveralls.io/r/MoeKit/seedit-config?branch=master)\r\n\r\n全站统一配置\r\n\r\n---\r\n\r\n从201406开始，需要引入该模块读取配置和测试环境下修改配置，以保证在多个环境UI行为一致。\r\n\r\n网站写cookie时请使用该模块设置domain。否则会导致不同环境表现不一致。\r\n\r\n该模块已经打包进 `jquery.min.js`\r\n\r\n---\r\n\r\n## 使用\r\n\r\n````javascript\r\nvar Config = require('index');\r\n````\r\n\r\n## API\r\n\r\n### get <em>function([key])</em>\r\n获取配置，key为空时，返回整个配置\r\n\r\n#### 可用key列表\r\n\r\n+ `commonAPI`  common接口地址，线上为`http://common.seedit.com`\r\n+ `huodongAPI` 活动接口地址，线上为`http://huodong.seedit.com/restful`\r\n\r\n### set <em>function(key,val)</em>\r\n不推荐使用，一般不需要使用，用于特殊情况下的调试\r\n\r\n### getSiteUrl <em>function(site)</em>\r\n根据当前页面地址获取子站域名\r\n\r\n```javascript\r\n// 若当前url为`http://bbs.seedit.com`\r\ngetSiteUrl('common'); // http://common.seedit.com\r\n\r\n```\r\n\r\n### getMainDomain\r\n根据当前页面地址获取主域名\r\n\r\n```javascript\r\n// 若当前url为`http://bbs.seedit.com`\r\ngetMainDomain(); // seedit.com\r\n\r\n```\r\n\r\n",
+  "tag": "stable",
+  "revision": "d0198ab94af3eb0109e4a3ddfc33797744bb785c",
+  "publisher": "airyland",
+  "md5": "f5dc91662de2feb1678196f8818c6592",
+  "filename": "seedit-config-0.1.1.tar.gz",
+  "created_at": "2014-06-14T14:06:22+08:00",
+  "updated_at": "2015-02-04T11:22:03+08:00",
+  "dependents": [
+    "seedit-uploader@0.0.1",
+    "seedit-login@0.0.8",
+    "seedit-oncetip@0.0.1",
+    "seedit-ooxx@0.0.1",
+    "seedit-api@0.0.5"
+  ]
+}
